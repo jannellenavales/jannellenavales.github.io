@@ -1,0 +1,13 @@
+---
+title: "Assignment 2"
+author: "Jannelle Navales"
+date: "2023-09-20"
+categories: 
+image: "image.jpg"
+---
+
+This assignment is currently a work in progress!
+
+```{r}
+
+```

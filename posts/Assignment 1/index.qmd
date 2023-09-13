@@ -1,0 +1,193 @@
+---
+title: "Assignment 1"
+author: "Jannelle Navales"
+date: "2023-09-13"
+categories: [data visualization, generative art, R]
+---
+
+Hello! This assignment contains 4 sections:
+
+1.  Examples of Generative Art
+
+2.  A Lesson in Data Visualization: Critiquing a Chart
+
+3.  Exploring Ascombe.R
+
+4.  Changing Colors on Fall.R
+
+**I. Examples of Generative Art**
+
+What is generative art? 
+
+When I first think of this term, I immediately think of the use of artificial intelligence (AI) to create different pieces of art, drawing from other examples from the web or fed into some algorithm. Indeed, generative art often refers to pieces created by an algorithm, but to any autonomous system from various fields, such as statistics or life and physical sciences. Such systems operate as instructions, placing limits on how a work may turn out. However, different outcomes can be generated based on the amount of chance its creator introduces in applying the system. 
+
+One of the earliest examples of generative art includes George Nees' *Schotter* (1968), as seen below. Nees used the ALGOL programming language and introduced random variables to create Schotter. While the top of the artwork begins as standard grid, the comprising squares begin to rotate and move, creating a gradient from order to chaos.  
+
+![](images/Schotter(1968).jpg){fig-alt="organized grid with a dilapidated bottom" fig-align="center" width="278"}
+
+ 
+
+Nowadays, generative art can be created using a greater variety of programming languages than was offered in 1968. For example, Javascript is one of the most popular languages utilized by artists today. Last spring, I took a web design class and identified several projects that could be classified as generative art. One piece in particular that stood out to me was *DT Soulmate Matcher* (1968), a piece created by then-MIT graduate student Munus Shih. The platform can be accessed [here](https://munusshih.github.io/dt-soulmate/index.html). A screenshot of the homepage can be found below. 
+
+![](images/DT%20Soulmate%20Matcher(2022).png){fig-align="center" width="505"}
+
+DT Soulmate Matcher was partly inspired by Shih's experiences with classmates in his MFA program, who often wished they could meet more like-minded peers. Furthermore, Shih wanted to investigate the exploratory nature of data visualization and how it could be used to connect audiences. Collecting information from his peers, Shih created a system for how different traits would be visualized in the piece (I.e. patterns, distance between individual profiles) using the library p5.js. He also created an algorithm that allowed for students to be assigned a "soulmate," or peer that they had most in common with. This system was coded in a way that it could accommodate for future student data, thus altering the initial displays and matches of the page.  
+
+Another example of generative art using p5.js includes the following image, created by Ike Stevens. While it may seem the piece might initially appear random at first, it is actually created using Oscar Best Picture Nomination data. The entire process can be further explained in this [Medium article](https://ikestevens27.medium.com/visualized-best-picture-nominations-exploring-data-driven-art-64471dc7b9d0), Visualized Best Picture Nominations: Exploring Data-Driven Art (2023). Visual elements of the image were determined by variables such as movie runtime and Rotten Tomatoes review scores. 
+
+![](images/Oscar%20Best%20Picture-01.png){fig-align="center" width="351"}
+
+Overall, exploring these pieces demonstrated how generative systems have an important role to play in the future of data visualization. I resonate with Shih's idea of creating pieces that will allow audiences to critically think and reflect on what is being is displayed. That being said, it is important that visual aesthetics of data do not overpower the messages we want to send to people, which I feel may be a notable issue to look out for. 
+
+**II. A Lesson in Data Visualization: Critiquing a Chart**
+
+Now that we've discussed the foundations of good data visualization in class these last few weeks, I used this assignment to exercise my knowledge in critiquing a graphic in the media. I ended up coming across [this article](https://www.nbcnews.com/politics/first-read/nbc-wsj-poll-americans-pessimistic-race-relations-n803446) on NBC News, that discussed the opinions of Americans towards race relations at the time. Written by Carrie Dann, NBC/WSJ Poll: Americans Pessimistic on Race Relations (2017) contained two charts demonstrating poll results provided by NBC News and Wall Street Journal. While I feel it is important to keep up with topics the article discussed, I took issue with one of the charts in the article. Pictured below, the chart displays the percentage of poll respondents that perceive race relations in the U.S. as good or bad over time, from 1994-2017.
+
+![](images/7B6EEC9C-BD5A-4073-8624-00954EE57F18.jpeg){fig-align="center" width="392"}
+
+Looking at this chart, there is a significant time period when race relations in the U.S. were viewed positively by Americans overall, and there are clear points where we can see a shift in public opinion. However, it's important to note that the periods of time between each data point are not equal in length, despite being displayed with equal horizontal distance between each other on the x-axis. For example, there is only a 4-month difference between September 9 to January 2010, but there is a 22-month difference from January 2010 to the time of the next set of data points, November 2011. The most notable time jump is between October 1995 to September 2005. Although this seems to be indicated by an unlabeled mark on the x-axis, the shift from a majority of "total bad" to "total good" participants may not have occurred at a constant rate as displayed on the graph. It may have been more appropriate to indicate a visual break in the main area of the graph as well. 
+
+Furthermore, there are certain parts of the chart that could've been labeled better. For example, it may have been helpful to label the x-axis as displaying month and year - one person could mistake a date such as "7/13" as July 13, not July 2013. The chart also displayed the percentage for each data point of the chart. While this could be helpful in context, the size of the chart makes it difficult for viewers to easily process the numbers. The size also caused some overlap between the percentages and lines, making it hard to read.
+
+An increase in chart size would not only address the issue of readability, but it could allow for the author to insert smaller captions regarding important events. For example, the article mentions the inauguration of Barack Obama and the verdict of the trial of George Zimmerman. These events, if mentioned in the chart, could give more context to various patterns in the graph. Since the news article is on the shorter side, I can understand why the author may have chosen to publish the graph the way it is. However, I think the chart can overall benefit from a larger size and more context to time differences between its data points.
+
+**III. Exploring Ascombe.R**
+
+```{r}
+## Anscombe (1973) Quartlet
+
+data(anscombe)  # Load Anscombe's data
+View(anscombe) # View the data
+summary(anscombe)
+
+## Simple version
+plot(anscombe$x1,anscombe$y1)
+summary(anscombe)
+
+# Create four model objects
+lm1 <- lm(y1 ~ x1, data=anscombe)
+summary(lm1)
+lm2 <- lm(y2 ~ x2, data=anscombe)
+summary(lm2)
+lm3 <- lm(y3 ~ x3, data=anscombe)
+summary(lm3)
+lm4 <- lm(y4 ~ x4, data=anscombe)
+summary(lm4)
+plot(anscombe$x1,anscombe$y1)
+abline(coefficients(lm1))
+plot(anscombe$x2,anscombe$y2)
+abline(coefficients(lm2))
+plot(anscombe$x3,anscombe$y3)
+abline(coefficients(lm3))
+plot(anscombe$x4,anscombe$y4)
+abline(coefficients(lm4))
+
+
+## Fancy version (per help file)
+
+ff <- y ~ x
+mods <- setNames(as.list(1:4), paste0("lm", 1:4))
+
+# Plot using for loop
+for(i in 1:4) {
+  ff[2:3] <- lapply(paste0(c("y","x"), i), as.name)
+  ## or   ff[[2]] <- as.name(paste0("y", i))
+  ##      ff[[3]] <- as.name(paste0("x", i))
+  mods[[i]] <- lmi <- lm(ff, data = anscombe)
+  print(anova(lmi))
+}
+
+sapply(mods, coef)  # Note the use of this function
+lapply(mods, function(fm) coef(summary(fm)))
+
+# Preparing for the plots
+op <- par(mfrow = c(2, 2), mar = 0.1+c(4,4,1,1), oma =  c(0, 0, 2, 0))
+
+# Plot charts using for loop
+for(i in 1:4) {
+  ff[2:3] <- lapply(paste0(c("y","x"), i), as.name)
+  plot(ff, data = anscombe, col = "red", pch = 21, bg = "orange", cex = 1.2,
+       xlim = c(3, 19), ylim = c(3, 13))
+  abline(mods[[i]], col = "blue")
+}
+mtext("Anscombe's 4 Regression data sets", outer = TRUE, cex = 1.5)
+par(op)
+
+```
+
+**IV. Changing Colors on Fall.R**
+
+```{r}
+# Title Fall color
+# Credit: https://fronkonstin.com
+
+# Install packages
+
+install.packages("gsubfn", repos = "http://cran.us.r-project.org")
+install.packages("tidyverse", repos = "http://cran.us.r-project.org")
+library(gsubfn)
+library(tidyverse)
+
+# Define elements in plant art
+# Each image corresponds to a different axiom, rules, angle and depth
+
+# Leaf of Fall
+
+axiom="X"
+rules=list("X"="F-[[X]+X]+F[+FX]-X", "F"="FF")
+angle=22.5
+depth=6
+
+
+for (i in 1:depth) axiom=gsubfn(".", rules, axiom)
+
+actions=str_extract_all(axiom, "\\d*\\+|\\d*\\-|F|L|R|\\[|\\]|\\|") %>% unlist
+
+status=data.frame(x=numeric(0), y=numeric(0), alfa=numeric(0))
+points=data.frame(x1 = 0, y1 = 0, x2 = NA, y2 = NA, alfa=90, depth=1)
+
+
+# Generating data
+# Note: may take a minute or two
+
+for (action in actions)
+{
+  if (action=="F")
+  {
+    x=points[1, "x1"]+cos(points[1, "alfa"]*(pi/180))
+    y=points[1, "y1"]+sin(points[1, "alfa"]*(pi/180))
+    points[1,"x2"]=x
+    points[1,"y2"]=y
+    data.frame(x1 = x, y1 = y, x2 = NA, y2 = NA,
+               alfa=points[1, "alfa"],
+               depth=points[1,"depth"]) %>% rbind(points)->points
+  }
+  if (action %in% c("+", "-")){
+    alfa=points[1, "alfa"]
+    points[1, "alfa"]=eval(parse(text=paste0("alfa",action, angle)))
+  }
+  if(action=="["){
+    data.frame(x=points[1, "x1"], y=points[1, "y1"], alfa=points[1, "alfa"]) %>%
+      rbind(status) -> status
+    points[1, "depth"]=points[1, "depth"]+1
+  }
+
+  if(action=="]"){
+    depth=points[1, "depth"]
+    points[-1,]->points
+    data.frame(x1=status[1, "x"], y1=status[1, "y"], x2=NA, y2=NA,
+               alfa=status[1, "alfa"],
+               depth=depth-1) %>%
+      rbind(points) -> points
+    status[-1,]->status
+  }
+}
+
+ggplot() +
+  geom_segment(aes(x = x1, y = y1, xend = x2, yend = y2),
+               lineend = "round",
+               color="darkolivegreen3", # Set your own Fall color?
+               data=na.omit(points)) +
+  coord_fixed(ratio = 1) +
+  theme_void() # No grid nor axes
+```

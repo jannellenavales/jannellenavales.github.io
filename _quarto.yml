@@ -1,0 +1,20 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Jannelle Navales"
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/jannellenavales
+      - icon: linkedin
+        href: https://www.linkedin.com/jannelle-navales/
+format:
+  html:
+    theme: united
+    css: styles.css
+
+editor: visual
+

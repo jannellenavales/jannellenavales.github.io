@@ -1,0 +1,14 @@
+{
+  "hash": "a2e1f42eeffe1e676226e9b01686916a",
+  "result": {
+    "markdown": "---\ntitle: \"Assignment 2\"\nauthor: \"Jannelle Navales\"\ndate: \"2023-09-20\"\ncategories: \nimage: \"image.jpg\"\n---\n\n\nThis assignment is currently a work in progress!\n\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
