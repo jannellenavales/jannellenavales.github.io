@@ -2,7 +2,7 @@
 title: "Assignment 2"
 author: "Jannelle Navales"
 date: "2023-09-20"
-categories: data analysis, r, cleaning data, scatterplot, barchart, histogram, boxplot, perspective chart, pie chart
+categories: []data analysis, r, cleaning data, scatterplot, barchart, histogram, boxplot, perspective chart, pie chart]
 ---
 
 Hello! This assignment contains 3 sections:
