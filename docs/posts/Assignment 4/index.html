@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jannelle Navales">
+<meta name="dcterms.date" content="2023-10-04">
+
+<title>Jannelle Navales - Assignment 4</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Jannelle Navales</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jannellenavales" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/jannelle-navales/" rel="" target=""><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Assignment 4</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">tidyverse</div>
+                <div class="quarto-category">r</div>
+                <div class="quarto-category">ggplot2</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Jannelle Navales </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 4, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p><strong>Final Output Hackathon Assignment</strong> (some practice for code is below as well)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries if not already loaded</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#load dataset</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>roaddeaths <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Downloads/Road traffic accidents.csv"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the dataset for the year 2021</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>year_2019_data <span class="ot">&lt;-</span> <span class="fu">subset</span>(roaddeaths, Year <span class="sc">==</span> <span class="dv">2019</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the total deaths for all ages and both sexes in 2019</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>total_deaths_2019 <span class="ot">&lt;-</span> year_2019_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Sex <span class="sc">==</span> <span class="st">"All"</span> <span class="sc">&amp;</span> Age.Group <span class="sc">==</span> <span class="st">"[All]"</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the number of top countries you want (e.g., top 5)</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the top T countries with the highest road accidents in 2019</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>top_5_countries <span class="ot">&lt;-</span> total_deaths_2019 <span class="sc">%&gt;%</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(T, Number)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#Some calculations for ploting</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>top_5_countries<span class="sc">$</span>wc <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(top_5_countries<span class="sc">$</span>Death.rate.per.<span class="dv">100</span>.<span class="fl">000.</span>population)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>top_5_countries<span class="sc">$</span>sp <span class="ot">&lt;-</span>top_5_countries<span class="sc">$</span>wc <span class="sc">-</span> top_5_countries<span class="sc">$</span>Death.rate.per.<span class="dv">100</span>.<span class="fl">000.</span>population</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>top_5_countries<span class="sc">$</span>mp <span class="ot">&lt;-</span> <span class="fu">with</span>(top_5_countries,sp <span class="sc">+</span>(wc<span class="sc">-</span>sp)<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co"># plotting</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>custom_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Brazil"</span> <span class="ot">=</span> <span class="st">"firebrick"</span>, <span class="st">"Mexico"</span> <span class="ot">=</span> <span class="st">"navy"</span>, </span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Russian Federation"</span> <span class="ot">=</span> <span class="st">"seagreen"</span>, <span class="st">"Thailand"</span> <span class="ot">=</span> <span class="st">"chocolate"</span>, </span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"United States of America"</span> <span class="ot">=</span> <span class="st">"orchid"</span>)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(top_5_countries, <span class="fu">aes</span>(<span class="at">ymin=</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>((<span class="fu">aes</span>(<span class="at">xmin =</span> sp, <span class="at">xmax =</span> wc, <span class="at">ymax =</span> Number, <span class="at">fill =</span> Country))) <span class="sc">+</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> mp, <span class="at">y =</span> Number <span class="sc">*</span> <span class="fl">0.5</span>, <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"Brazil"</span>, <span class="st">"Mexico"</span>, </span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>                                                    <span class="st">"Russia"</span>, <span class="st">"Thailand"</span>, <span class="st">"USA"</span>))) <span class="sc">+</span> </span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> </span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Road Deaths and Death Rates for Countries with the Highest Mortality"</span>,</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Death Rate (per 100,000 population)"</span>,</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Road Accident Deaths"</span>,</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> custom_colors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#load dataset</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>roaddeaths <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Downloads/Road traffic accidents.csv"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the dataset for the year 2019 $ 2020</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>year_2019_2020_data <span class="ot">&lt;-</span> <span class="fu">subset</span>(roaddeaths, Year <span class="sc">==</span> <span class="dv">2019</span> <span class="sc">|</span> Year <span class="sc">==</span> <span class="dv">2020</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the total deaths for all ages and both sexes in 2019 $ 2020</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>road_deaths_2019_2020 <span class="ot">&lt;-</span> year_2019_2020_data <span class="sc">%&gt;%</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Sex <span class="sc">==</span> <span class="st">"All"</span> <span class="sc">&amp;</span> Age.Group <span class="sc">==</span> <span class="st">"[All]"</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the number of top countries</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the top 4 countries with the highest road accident deaths</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>top_countries<span class="ot">&lt;-</span> road_deaths_2019_2020 <span class="sc">%&gt;%</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(T,Number )</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Define custom fill colors</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>custom_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"2019"</span> <span class="ot">=</span> <span class="st">"darkslategrey"</span>, <span class="st">"2020"</span> <span class="ot">=</span> <span class="st">"orchid"</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(top_countries, <span class="fu">aes</span>(<span class="at">x =</span> Country, <span class="at">y =</span> Number, <span class="at">fill =</span> <span class="fu">as.factor</span>(Year))) <span class="sc">+</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="sc">~</span> Country, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Road Accident Deaths"</span>, <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Number of Deaths"</span>) <span class="sc">+</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> custom_colors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#load dataset</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>roaddeaths <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Downloads/Road traffic accidents.csv"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the dataset for the year 2019</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>year_2019_data <span class="ot">&lt;-</span> <span class="fu">subset</span>(roaddeaths, Year <span class="sc">==</span> <span class="dv">2019</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the dataset for USA</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>usa_2019 <span class="ot">&lt;-</span> <span class="fu">subset</span>(year_2019_data, Country <span class="sc">==</span> <span class="st">"United States of America"</span> </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                   <span class="sc">&amp;</span> Age.Group <span class="sc">!=</span> <span class="st">"[All]"</span> <span class="sc">&amp;</span> Age.Group <span class="sc">!=</span> <span class="st">"[Unknown]"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorder the levels of Age.Group</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>usa_2019<span class="sc">$</span>Age.Group <span class="ot">&lt;-</span> <span class="fu">factor</span>(usa_2019<span class="sc">$</span>Age.Group, </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                             <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"[0]"</span>, <span class="st">"[1-4]"</span>, <span class="st">"[5-9]"</span>, <span class="st">"[10-14]"</span>, <span class="st">"[15-19]"</span>,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"[20-24]"</span>, <span class="st">"[25-29]"</span>, <span class="st">"[30-34]"</span>, <span class="st">"[35-39]"</span>,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"[40-44]"</span>, <span class="st">"[45-49]"</span>, <span class="st">"[50-54]"</span>, <span class="st">"[55-59]"</span>, </span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"[60-64]"</span>, <span class="st">"[65-69]"</span>, <span class="st">"[70-74]"</span>, <span class="st">"[75-79]"</span>, </span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"[80-84]"</span>, <span class="st">"[85+]"</span>))</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the bar plot</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(usa_2019, <span class="fu">aes</span>(<span class="at">x =</span> Number)) <span class="sc">+</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">y =</span> Age.Group), <span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"darkslategrey"</span>) <span class="sc">+</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Road Accident Deaths in the USA by Age Group (2019)"</span>,</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Number of Road Traffic Accidents"</span>,</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Age Group"</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the necessary libraries</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#load dataset</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>roaddeaths <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Downloads/Road traffic accidents.csv"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the dataset for the year 2021</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>year_2019_data <span class="ot">&lt;-</span> <span class="fu">subset</span>(roaddeaths, Year <span class="sc">==</span> <span class="dv">2019</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a clustered bar chart</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(year_2019_data, <span class="fu">aes</span>(<span class="at">x =</span> Region)) <span class="sc">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">y =</span> Number, <span class="at">fill =</span> Sex), <span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Male"</span> <span class="ot">=</span> <span class="st">"orchid"</span>, <span class="st">"Female"</span> <span class="ot">=</span> <span class="st">"chocolate"</span>, <span class="st">"All"</span> <span class="ot">=</span> <span class="st">"darkslategrey"</span>)) <span class="sc">+</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Road Accident Deaths by Gender and Region (2019)"</span>,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Road Traffic Accidents"</span>,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Gender"</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_col(aes(y = Number, fill = Sex), position = "dodge", stat =
+"identity"): Ignoring unknown parameters: `stat`</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 27 rows containing missing values (`geom_col()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Practice 1</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>rt <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Downloads/Road traffic accidents.csv"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="do">##practice variable width</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#downloading libraries</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>NOTE: Either Arial Narrow or Roboto Condensed fonts are required to use these themes.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>      Please use hrbrthemes::import_roboto_condensed() to install Roboto Condensed and</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>      if Arial Narrow is not on your system, please see https://bit.ly/arialnarrow</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#make data</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#each include column</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">group=</span><span class="fu">c</span>(<span class="st">"A"</span> ,<span class="st">"B"</span> ,<span class="st">"C"</span> ,<span class="st">"D"</span> ) ,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">value=</span><span class="fu">c</span>(<span class="dv">33</span>,<span class="dv">62</span>,<span class="dv">56</span>,<span class="dv">67</span>) ,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">number_of_obs=</span><span class="fu">c</span>(<span class="dv">100</span>,<span class="dv">500</span>,<span class="dv">459</span>,<span class="dv">342</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(data)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the future positions on the x axis of each bar (left border, central position, right border)</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">#cumsum() adds the values of each column to that point, including the 30 added to right</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">#added 30 to each</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>right <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(data<span class="sc">$</span>number_of_obs) <span class="sc">+</span> <span class="dv">30</span><span class="sc">*</span><span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span>(<span class="fu">nrow</span>(data)<span class="sc">-</span><span class="dv">1</span>))</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">#creates left border?</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>left <span class="ot">&lt;-</span> data<span class="sc">$</span>right <span class="sc">-</span> data<span class="sc">$</span>number_of_ob</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(data)</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="co">#xmin,xmax,ymin,ymax specify annotations of rectangles</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="co">#xend,yend geometric curves</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="co">#aes in gg plot modifies overall plot</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="co">#colour = group -&gt; authomatic color?</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">ymin =</span> <span class="dv">0</span>)) <span class="sc">+</span> </span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_rect</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> left, <span class="at">xmax =</span> right, <span class="at">ymax =</span> value, <span class="at">colour =</span> group, <span class="at">fill =</span> group)) <span class="sc">+</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"number of obs"</span>) <span class="sc">+</span> </span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"value"</span>) <span class="sc">+</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Chart 1</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>rt <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Downloads/Road traffic accidents.csv"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>chart1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">region=</span><span class="fu">c</span>(<span class="st">"AF"</span> ,<span class="st">"AS"</span> ,<span class="st">"CSA"</span> ,<span class="st">"EU"</span>, <span class="st">"NAC"</span>, <span class="st">"OA"</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(chart1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Practice 2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'kableExtra'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    group_rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ lubridate 1.9.2     ✔ tibble    3.2.1
+✔ purrr     1.0.2     ✔ tidyr     1.3.0
+✔ readr     2.1.4     </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter()          masks stats::filter()
+✖ kableExtra::group_rows() masks dplyr::group_rows()
+✖ dplyr::lag()             masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> mtcars[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dt)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#displays data set in HTML format</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(dt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mpg</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">cyl</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">disp</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">hp</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">drat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">wt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mazda RX4</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">2.620</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mazda RX4 Wag</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">2.875</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Datsun 710</td>
+<td style="text-align: right;">22.8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">3.85</td>
+<td style="text-align: right;">2.320</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hornet 4 Drive</td>
+<td style="text-align: right;">21.4</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">258</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.08</td>
+<td style="text-align: right;">3.215</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hornet Sportabout</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">360</td>
+<td style="text-align: right;">175</td>
+<td style="text-align: right;">3.15</td>
+<td style="text-align: right;">3.440</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#styling applies bootstrap</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>dt <span class="sc">%&gt;%</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mpg</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">cyl</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">disp</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">hp</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">drat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">wt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mazda RX4</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">2.620</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mazda RX4 Wag</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">2.875</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Datsun 710</td>
+<td style="text-align: right;">22.8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">3.85</td>
+<td style="text-align: right;">2.320</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hornet 4 Drive</td>
+<td style="text-align: right;">21.4</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">258</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.08</td>
+<td style="text-align: right;">3.215</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hornet Sportabout</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">360</td>
+<td style="text-align: right;">175</td>
+<td style="text-align: right;">3.15</td>
+<td style="text-align: right;">3.440</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#other formats available - see https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#can add caption in kbl</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>dt <span class="sc">%&gt;%</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Displaying Car Data"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Displaying Car Data</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mpg</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">cyl</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">disp</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">hp</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">drat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">wt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mazda RX4</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">2.620</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mazda RX4 Wag</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">2.875</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Datsun 710</td>
+<td style="text-align: right;">22.8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">3.85</td>
+<td style="text-align: right;">2.320</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hornet 4 Drive</td>
+<td style="text-align: right;">21.4</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">258</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.08</td>
+<td style="text-align: right;">3.215</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hornet Sportabout</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">360</td>
+<td style="text-align: right;">175</td>
+<td style="text-align: right;">3.15</td>
+<td style="text-align: right;">3.440</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>mpg_list <span class="ot">&lt;-</span> <span class="fu">split</span>(mtcars<span class="sc">$</span>mpg, mtcars<span class="sc">$</span>cyl)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>disp_list <span class="ot">&lt;-</span> <span class="fu">split</span>(mtcars<span class="sc">$</span>disp, mtcars<span class="sc">$</span>cyl)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>inline_plot <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">cyl =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>), <span class="at">mpg_box =</span> <span class="st">""</span>, <span class="at">mpg_hist =</span> <span class="st">""</span>,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">mpg_line1 =</span> <span class="st">""</span>, <span class="at">mpg_line2 =</span> <span class="st">""</span>,</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">mpg_points1 =</span> <span class="st">""</span>, <span class="at">mpg_points2 =</span> <span class="st">""</span>, <span class="at">mpg_poly =</span> <span class="st">""</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>inline_plot <span class="sc">%&gt;%</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_paper</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">2</span>, <span class="at">image =</span> <span class="fu">spec_boxplot</span>(mpg_list)) <span class="sc">%&gt;%</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">3</span>, <span class="at">image =</span> <span class="fu">spec_hist</span>(mpg_list)) <span class="sc">%&gt;%</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">4</span>, <span class="at">image =</span> <span class="fu">spec_plot</span>(mpg_list, <span class="at">same_lim =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">5</span>, <span class="at">image =</span> <span class="fu">spec_plot</span>(mpg_list, <span class="at">same_lim =</span> <span class="cn">FALSE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">6</span>, <span class="at">image =</span> <span class="fu">spec_plot</span>(mpg_list, <span class="at">type =</span> <span class="st">"p"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">7</span>, <span class="at">image =</span> <span class="fu">spec_plot</span>(mpg_list, disp_list, <span class="at">type =</span> <span class="st">"p"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">8</span>, <span class="at">image =</span> <span class="fu">spec_plot</span>(mpg_list, <span class="at">polymin =</span> <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="lightable-paper table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">cyl</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">mpg_box</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">mpg_hist</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">mpg_line1</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">mpg_line2</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">mpg_points1</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">mpg_points2</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">mpg_poly</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+PHBvbHlnb24gcG9pbnRzPSIyNS4yMyw4LjIyIDI1LjIzLDMuNzggMzkuNjAsMy43OCAzOS42MCw4LjIyICIgc3R5bGU9InN0cm9rZS13aWR0aDogMC43NTsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9wb2x5Z29uPjxsaW5lIHgxPSIzMS4yOCIgeTE9IjguMjIiIHgyPSIzMS4yOCIgeTI9IjMuNzgiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDAuNzU7IHN0cm9rZTogI0ZGMDAwMDsgc3Ryb2tlLWxpbmVjYXA6IGJ1dHQ7Ij48L2xpbmU+PGxpbmUgeDE9IjIyLjU4IiB5MT0iNi4wMCIgeDI9IjI1LjIzIiB5Mj0iNi4wMCIgc3R5bGU9InN0cm9rZS13aWR0aDogMC43NTsiPjwvbGluZT48bGluZSB4MT0iNDYuMjIiIHkxPSI2LjAwIiB4Mj0iMzkuNjAiIHkyPSI2LjAwIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAwLjc1OyI+PC9saW5lPjxsaW5lIHgxPSIyMi41OCIgeTE9IjcuMTEiIHgyPSIyMi41OCIgeTI9IjQuODkiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDAuNzU7Ij48L2xpbmU+PGxpbmUgeDE9IjQ2LjIyIiB5MT0iNy4xMSIgeDI9IjQ2LjIyIiB5Mj0iNC44OSIgc3R5bGU9InN0cm9rZS13aWR0aDogMC43NTsiPjwvbGluZT48cG9seWdvbiBwb2ludHM9IjI1LjIzLDguMjIgMjUuMjMsMy43OCAzOS42MCwzLjc4IDM5LjYwLDguMjIgIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAwLjc1OyBzdHJva2U6IG5vbmU7Ij48L3BvbHlnb24+PC9nPjwvc3ZnPg==" class="svglite img-fluid"></td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+CjwvZz48ZGVmcz48Y2xpcHBhdGggaWQ9ImNwTUM0d01IdzBPQzR3TUh3eUxqZzRmREV5TGpBdyI+PHJlY3QgeD0iMC4wMCIgeT0iMi44OCIgd2lkdGg9IjQ4LjAwIiBoZWlnaHQ9IjkuMTIiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd5TGpnNGZERXlMakF3KSI+PHJlY3QgeD0iMTkuOTMiIHk9IjMuMjIiIHdpZHRoPSIzLjc4IiBoZWlnaHQ9IjguNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDAuMzg7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMjMuNzIiIHk9IjMuMjIiIHdpZHRoPSIzLjc4IiBoZWlnaHQ9IjguNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDAuMzg7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMjcuNTAiIHk9IjMuMjIiIHdpZHRoPSIzLjc4IiBoZWlnaHQ9IjguNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDAuMzg7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMzEuMjgiIHk9IjcuNDQiIHdpZHRoPSIzLjc4IiBoZWlnaHQ9IjQuMjIiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDAuMzg7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMzUuMDYiIHk9IjExLjY2IiB3aWR0aD0iMy43OCIgaGVpZ2h0PSIwLjAwIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAwLjM4OyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjM4Ljg1IiB5PSIzLjIyIiB3aWR0aD0iMy43OCIgaGVpZ2h0PSI4LjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAwLjM4OyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjQyLjYzIiB5PSIzLjIyIiB3aWR0aD0iMy43OCIgaGVpZ2h0PSI4LjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAwLjM4OyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjwvZz48L3N2Zz4=" class="svglite img-fluid"></td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+PHBvbHlsaW5lIHBvaW50cz0iMy40Miw1LjcyIDcuNTQsNS4wMSAxMS42NSw1LjcyIDE1Ljc3LDEuNTEgMTkuODgsMi4zOSAyNC4wMCwwLjg2IDI4LjEyLDYuMjggMzIuMjMsMy43NSAzNi4zNSw0LjMxIDQwLjQ2LDIuMzkgNDQuNTgsNi4zMyAiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogI0QzRDNEMzsiPjwvcG9seWxpbmU+PHJlY3QgeD0iNDMuODYiIHk9IjUuNjEiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0ZGMDAwMDsiPjwvcmVjdD48cmVjdCB4PSIyMy4yOCIgeT0iMC4xNCIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRkYwMDAwOyI+PC9yZWN0PjwvZz48L3N2Zz4=" class="svglite img-fluid"></td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+PHBvbHlsaW5lIHBvaW50cz0iMy40Miw5Ljk5IDcuNTQsOC42NyAxMS42NSw5Ljk5IDE1Ljc3LDIuMDkgMTkuODgsMy43NCAyNC4wMCwwLjg2IDI4LjEyLDExLjA2IDMyLjIzLDYuMjkgMzYuMzUsNy4zNiA0MC40NiwzLjc0IDQ0LjU4LDExLjE0ICIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiAjRDNEM0QzOyI+PC9wb2x5bGluZT48cmVjdCB4PSI0My44NiIgeT0iMTAuNDIiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0ZGMDAwMDsiPjwvcmVjdD48cmVjdCB4PSIyMy4yOCIgeT0iMC4xNCIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRkYwMDAwOyI+PC9yZWN0PjwvZz48L3N2Zz4=" class="svglite img-fluid"></td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+PHJlY3QgeD0iMi43MCIgeT0iNS4wMCIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjYuODIiIHk9IjQuMjkiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSIxMC45MyIgeT0iNS4wMCIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjE1LjA1IiB5PSIwLjc5IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMTkuMTYiIHk9IjEuNjciIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSIyMy4yOCIgeT0iMC4xNCIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjI3LjQwIiB5PSI1LjU2IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMzEuNTEiIHk9IjMuMDMiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSIzNS42MyIgeT0iMy41OSIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjM5Ljc0IiB5PSIxLjY3IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iNDMuODYiIHk9IjUuNjEiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSI0My44NiIgeT0iNS42MSIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRkYwMDAwOyI+PC9yZWN0PjxyZWN0IHg9IjIzLjI4IiB5PSIwLjE0IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNGRjAwMDA7Ij48L3JlY3Q+PC9nPjwvc3ZnPg==" class="svglite img-fluid"></td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+PHJlY3QgeD0iMjQuNDIiIHk9IjkuNDgiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSIyNy4yMiIgeT0iOC40OCIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjI0LjQyIiB5PSI4LjY0IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iNDEuMjMiIHk9IjEwLjIzIiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMzcuNzMiIHk9IjEwLjMxIiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iNDMuODYiIHk9IjEwLjQyIiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMjIuMTQiIHk9IjkuMTciIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSIzMi4zMCIgeT0iMTAuMjIiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSIzMC4wMiIgeT0iOS4xNiIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjM3LjczIiB5PSI5LjgxIiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMjEuOTciIHk9IjkuMTQiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSI0My44NiIgeT0iMTAuNDIiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0ZGMDAwMDsiPjwvcmVjdD48cmVjdCB4PSIyNy4yMiIgeT0iOC40OCIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRkYwMDAwOyI+PC9yZWN0PjwvZz48L3N2Zz4=" class="svglite img-fluid"></td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+PHBvbHlnb24gcG9pbnRzPSIzLjQyLDExLjE0IDMuNDIsNC44MSA3LjU0LDQuMjQgMTEuNjUsNC44MSAxNS43NywxLjM5IDE5Ljg4LDIuMTAgMjQuMDAsMC44NiAyOC4xMiw1LjI3IDMyLjIzLDMuMjEgMzYuMzUsMy42NyA0MC40NiwyLjEwIDQ0LjU4LDUuMzEgNDQuNTgsMTEuMTQgIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3BvbHlnb24+PHJlY3QgeD0iNDMuODYiIHk9IjQuNTkiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0ZGMDAwMDsiPjwvcmVjdD48cmVjdCB4PSIyMy4yOCIgeT0iMC4xNCIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRkYwMDAwOyI+PC9yZWN0PjwvZz48L3N2Zz4=" class="svglite img-fluid"></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+PHBvbHlnb24gcG9pbnRzPSIxNy4zOCw4LjIyIDE3LjM4LDMuNzggMjEuODMsMy43OCAyMS44Myw4LjIyICIgc3R5bGU9InN0cm9rZS13aWR0aDogMC43NTsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9wb2x5Z29uPjxsaW5lIHgxPSIxOS4zNyIgeTE9IjguMjIiIHgyPSIxOS4zNyIgeTI9IjMuNzgiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDAuNzU7IHN0cm9rZTogI0ZGMDAwMDsgc3Ryb2tlLWxpbmVjYXA6IGJ1dHQ7Ij48L2xpbmU+PGxpbmUgeDE9IjE1Ljc3IiB5MT0iNi4wMCIgeDI9IjE3LjM4IiB5Mj0iNi4wMCIgc3R5bGU9InN0cm9rZS13aWR0aDogMC43NTsiPjwvbGluZT48bGluZSB4MT0iMjIuNTgiIHkxPSI2LjAwIiB4Mj0iMjEuODMiIHkyPSI2LjAwIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAwLjc1OyI+PC9saW5lPjxsaW5lIHgxPSIxNS43NyIgeTE9IjcuMTEiIHgyPSIxNS43NyIgeTI9IjQuODkiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDAuNzU7Ij48L2xpbmU+PGxpbmUgeDE9IjIyLjU4IiB5MT0iNy4xMSIgeDI9IjIyLjU4IiB5Mj0iNC44OSIgc3R5bGU9InN0cm9rZS13aWR0aDogMC43NTsiPjwvbGluZT48cG9seWdvbiBwb2ludHM9IjE3LjM4LDguMjIgMTcuMzgsMy43OCAyMS44MywzLjc4IDIxLjgzLDguMjIgIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAwLjc1OyBzdHJva2U6IG5vbmU7Ij48L3BvbHlnb24+PC9nPjwvc3ZnPg==" class="svglite img-fluid"></td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+CjwvZz48ZGVmcz48Y2xpcHBhdGggaWQ9ImNwTUM0d01IdzBPQzR3TUh3eUxqZzRmREV5TGpBdyI+PHJlY3QgeD0iMC4wMCIgeT0iMi44OCIgd2lkdGg9IjQ4LjAwIiBoZWlnaHQ9IjkuMTIiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd5TGpnNGZERXlMakF3KSI+PHJlY3QgeD0iMTQuMjYiIHk9IjcuNDQiIHdpZHRoPSIxLjg5IiBoZWlnaHQ9IjQuMjIiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDAuMzg7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMTYuMTUiIHk9IjcuNDQiIHdpZHRoPSIxLjg5IiBoZWlnaHQ9IjQuMjIiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDAuMzg7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMTguMDQiIHk9IjMuMjIiIHdpZHRoPSIxLjg5IiBoZWlnaHQ9IjguNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDAuMzg7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMTkuOTMiIHk9IjMuMjIiIHdpZHRoPSIxLjg5IiBoZWlnaHQ9IjguNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDAuMzg7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMjEuODMiIHk9IjcuNDQiIHdpZHRoPSIxLjg5IiBoZWlnaHQ9IjQuMjIiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDAuMzg7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PC9nPjwvc3ZnPg==" class="svglite img-fluid"></td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+PHBvbHlsaW5lIHBvaW50cz0iMy40Miw2LjUwIDEwLjI4LDYuNTAgMTcuMTQsNi4zMyAyNC4wMCw3Ljc3IDMwLjg2LDcuMjkgMzcuNzIsNy45MCA0NC41OCw3LjA3ICIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiAjRDNEM0QzOyI+PC9wb2x5bGluZT48cmVjdCB4PSIzNy4wMCIgeT0iNy4xOCIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRkYwMDAwOyI+PC9yZWN0PjxyZWN0IHg9IjE2LjQyIiB5PSI1LjYxIiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNGRjAwMDA7Ij48L3JlY3Q+PC9nPjwvc3ZnPg==" class="svglite img-fluid"></td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+PHBvbHlsaW5lIHBvaW50cz0iMy40MiwyLjAwIDEwLjI4LDIuMDAgMTcuMTQsMC44NiAyNC4wMCwxMC4yOSAzMC44Niw3LjE0IDM3LjcyLDExLjE0IDQ0LjU4LDUuNzEgIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6ICNEM0QzRDM7Ij48L3BvbHlsaW5lPjxyZWN0IHg9IjM3LjAwIiB5PSIxMC40MiIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRkYwMDAwOyI+PC9yZWN0PjxyZWN0IHg9IjE2LjQyIiB5PSIwLjE0IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNGRjAwMDA7Ij48L3JlY3Q+PC9nPjwvc3ZnPg==" class="svglite img-fluid"></td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+PHJlY3QgeD0iMi43MCIgeT0iNS43OCIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjkuNTYiIHk9IjUuNzgiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSIxNi40MiIgeT0iNS42MSIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjIzLjI4IiB5PSI3LjA1IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMzAuMTQiIHk9IjYuNTciIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSIzNy4wMCIgeT0iNy4xOCIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjQzLjg2IiB5PSI2LjM1IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMzcuMDAiIHk9IjcuMTgiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0ZGMDAwMDsiPjwvcmVjdD48cmVjdCB4PSIxNi40MiIgeT0iNS42MSIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRkYwMDAwOyI+PC9yZWN0PjwvZz48L3N2Zz4=" class="svglite img-fluid"></td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+PHJlY3QgeD0iMjEuMjciIHk9IjguMTQiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSIyMS4yNyIgeT0iOC4xNCIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjIxLjk3IiB5PSI1LjYzIiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMTYuMTkiIHk9IjYuNDciIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSIxOC4xMSIgeT0iNy45NSIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjE1LjY2IiB5PSI3Ljk1IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMTguOTkiIHk9IjguNTMiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSIxOC45OSIgeT0iOC41MyIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRkYwMDAwOyI+PC9yZWN0PjxyZWN0IHg9IjIxLjk3IiB5PSI1LjYzIiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNGRjAwMDA7Ij48L3JlY3Q+PC9nPjwvc3ZnPg==" class="svglite img-fluid"></td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+PHBvbHlnb24gcG9pbnRzPSIzLjQyLDExLjE0IDMuNDIsNS40NSAxMC4yOCw1LjQ1IDE3LjE0LDUuMzEgMjQuMDAsNi40OCAzMC44Niw2LjA5IDM3LjcyLDYuNTkgNDQuNTgsNS45MSA0NC41OCwxMS4xNCAiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcG9seWdvbj48cmVjdCB4PSIzNy4wMCIgeT0iNS44NyIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRkYwMDAwOyI+PC9yZWN0PjxyZWN0IHg9IjE2LjQyIiB5PSI0LjU5IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNGRjAwMDA7Ij48L3JlY3Q+PC9nPjwvc3ZnPg==" class="svglite img-fluid"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">8</td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+PHBvbHlnb24gcG9pbnRzPSI5LjE1LDguMjIgOS4xNSwzLjc4IDEzLjEzLDMuNzggMTMuMTMsOC4yMiAiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDAuNzU7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcG9seWdvbj48bGluZSB4MT0iMTAuODYiIHkxPSI4LjIyIiB4Mj0iMTAuODYiIHkyPSIzLjc4IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAwLjc1OyBzdHJva2U6ICNGRjAwMDA7IHN0cm9rZS1saW5lY2FwOiBidXR0OyI+PC9saW5lPjxsaW5lIHgxPSI3LjI2IiB5MT0iNi4wMCIgeDI9IjkuMTUiIHkyPSI2LjAwIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAwLjc1OyI+PC9saW5lPjxsaW5lIHgxPSIxOC40MiIgeTE9IjYuMDAiIHgyPSIxMy4xMyIgeTI9IjYuMDAiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDAuNzU7Ij48L2xpbmU+PGxpbmUgeDE9IjcuMjYiIHkxPSI3LjExIiB4Mj0iNy4yNiIgeTI9IjQuODkiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDAuNzU7Ij48L2xpbmU+PGxpbmUgeDE9IjE4LjQyIiB5MT0iNy4xMSIgeDI9IjE4LjQyIiB5Mj0iNC44OSIgc3R5bGU9InN0cm9rZS13aWR0aDogMC43NTsiPjwvbGluZT48cG9seWdvbiBwb2ludHM9IjkuMTUsOC4yMiA5LjE1LDMuNzggMTMuMTMsMy43OCAxMy4xMyw4LjIyICIgc3R5bGU9InN0cm9rZS13aWR0aDogMC43NTsgc3Ryb2tlOiBub25lOyI+PC9wb2x5Z29uPjxjaXJjbGUgY3g9IjEuNzgiIGN5PSI2LjAwIiByPSIwLjU0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAwLjc1OyI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMS43OCIgY3k9IjYuMDAiIHI9IjAuNTQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDAuNzU7Ij48L2NpcmNsZT48L2c+PC9zdmc+" class="svglite img-fluid"></td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+CjwvZz48ZGVmcz48Y2xpcHBhdGggaWQ9ImNwTUM0d01IdzBPQzR3TUh3eUxqZzRmREV5TGpBdyI+PHJlY3QgeD0iMC4wMCIgeT0iMi44OCIgd2lkdGg9IjQ4LjAwIiBoZWlnaHQ9IjkuMTIiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd5TGpnNGZERXlMakF3KSI+PHJlY3QgeD0iMS4wMiIgeT0iOS4yNSIgd2lkdGg9IjMuNzgiIGhlaWdodD0iMi40MSIgc3R5bGU9InN0cm9rZS13aWR0aDogMC4zODsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSI0LjgwIiB5PSIxMC40NiIgd2lkdGg9IjMuNzgiIGhlaWdodD0iMS4yMSIgc3R5bGU9InN0cm9rZS13aWR0aDogMC4zODsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSI4LjU5IiB5PSIzLjIyIiB3aWR0aD0iMy43OCIgaGVpZ2h0PSI4LjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAwLjM4OyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjEyLjM3IiB5PSI5LjI1IiB3aWR0aD0iMy43OCIgaGVpZ2h0PSIyLjQxIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAwLjM4OyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjE2LjE1IiB5PSI5LjI1IiB3aWR0aD0iMy43OCIgaGVpZ2h0PSIyLjQxIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAwLjM4OyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjwvZz48L3N2Zz4=" class="svglite img-fluid"></td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+PHBvbHlsaW5lIHBvaW50cz0iMy40Miw3LjUxIDYuNTksOS40NCA5Ljc1LDguNTIgMTIuOTIsOC4xMiAxNi4wOSw5LjA0IDE5LjI1LDExLjE0IDIyLjQyLDExLjE0IDI1LjU4LDkuMjYgMjguNzUsOC45MSAzMS45MSw5LjA0IDM1LjA4LDkuODcgMzguMjUsNy4yOSA0MS40MSw4Ljc4IDQ0LjU4LDkuMTMgIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6ICNEM0QzRDM7Ij48L3BvbHlsaW5lPjxyZWN0IHg9IjE4LjUzIiB5PSIxMC40MiIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRkYwMDAwOyI+PC9yZWN0PjxyZWN0IHg9IjM3LjUzIiB5PSI2LjU3IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNGRjAwMDA7Ij48L3JlY3Q+PC9nPjwvc3ZnPg==" class="svglite img-fluid"></td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+PHBvbHlsaW5lIHBvaW50cz0iMy40MiwxLjQ0IDYuNTksNi41OCA5Ljc1LDQuMTMgMTIuOTIsMy4wOCAxNi4wOSw1LjUzIDE5LjI1LDExLjE0IDIyLjQyLDExLjE0IDI1LjU4LDYuMTIgMjguNzUsNS4xOCAzMS45MSw1LjUzIDM1LjA4LDcuNzUgMzguMjUsMC44NiA0MS40MSw0LjgzIDQ0LjU4LDUuNzcgIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6ICNEM0QzRDM7Ij48L3BvbHlsaW5lPjxyZWN0IHg9IjE4LjUzIiB5PSIxMC40MiIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRkYwMDAwOyI+PC9yZWN0PjxyZWN0IHg9IjM3LjUzIiB5PSIwLjE0IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNGRjAwMDA7Ij48L3JlY3Q+PC9nPjwvc3ZnPg==" class="svglite img-fluid"></td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+PHJlY3QgeD0iMi43MCIgeT0iNi43OSIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjUuODciIHk9IjguNzIiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSI5LjAzIiB5PSI3LjgwIiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMTIuMjAiIHk9IjcuNDAiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSIxNS4zNyIgeT0iOC4zMiIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjE4LjUzIiB5PSIxMC40MiIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjIxLjcwIiB5PSIxMC40MiIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjI0Ljg2IiB5PSI4LjU0IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMjguMDMiIHk9IjguMTkiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSIzMS4xOSIgeT0iOC4zMiIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjM0LjM2IiB5PSI5LjE1IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMzcuNTMiIHk9IjYuNTciIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSI0MC42OSIgeT0iOC4wNiIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjQzLjg2IiB5PSI4LjQxIiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMTguNTMiIHk9IjEwLjQyIiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNGRjAwMDA7Ij48L3JlY3Q+PHJlY3QgeD0iMzcuNTMiIHk9IjYuNTciIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0ZGMDAwMDsiPjwvcmVjdD48L2c+PC9zdmc+" class="svglite img-fluid"></td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+PHJlY3QgeD0iMTcuMjQiIHk9IjMuMDEiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSI5LjUzIiB5PSIzLjAxIiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMTMuMjEiIHk9IjUuMTciIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSIxNC43OSIgeT0iNS4xNyIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjExLjExIiB5PSI1LjE3IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMi43MCIgeT0iMC4xNCIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjIuNzAiIHk9IjAuNDQiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSIxMC4yMyIgeT0iMC45NiIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjExLjYzIiB5PSI0LjA5IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMTEuMTEiIHk9IjQuNDUiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSI3Ljc4IiB5PSIzLjI3IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMTguMTEiIHk9IjEuOTgiIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcmVjdD48cmVjdCB4PSIxMi4xNiIgeT0iMy4yNCIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRDNEM0QzOyI+PC9yZWN0PjxyZWN0IHg9IjEwLjc2IiB5PSI0LjUyIiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNEM0QzRDM7Ij48L3JlY3Q+PHJlY3QgeD0iMTMuMjEiIHk9IjUuMTciIHdpZHRoPSIxLjQ0IiBoZWlnaHQ9IjEuNDQiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0ZGMDAwMDsiPjwvcmVjdD48cmVjdCB4PSIyLjcwIiB5PSIwLjE0IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNGRjAwMDA7Ij48L3JlY3Q+PC9nPjwvc3ZnPg==" class="svglite img-fluid"></td>
+<td style="text-align: left;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjbGFzcz0ic3ZnbGl0ZSIgd2lkdGg9IjQ4LjAwcHQiIGhlaWdodD0iMTIuMDBwdCIgdmlld2JveD0iMCAwIDQ4LjAwIDEyLjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgogICAgLnN2Z2xpdGUgbGluZSwgLnN2Z2xpdGUgcG9seWxpbmUsIC5zdmdsaXRlIHBvbHlnb24sIC5zdmdsaXRlIHBhdGgsIC5zdmdsaXRlIHJlY3QsIC5zdmdsaXRlIGNpcmNsZSB7CiAgICAgIGZpbGw6IG5vbmU7CiAgICAgIHN0cm9rZTogIzAwMDAwMDsKICAgICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kOwogICAgICBzdHJva2UtbGluZWpvaW46IHJvdW5kOwogICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTAuMDA7CiAgICB9CiAgICAuc3ZnbGl0ZSB0ZXh0IHsKICAgICAgd2hpdGUtc3BhY2U6IHByZTsKICAgIH0KICA8L3N0eWxlPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0ic3Ryb2tlOiBub25lOyBmaWxsOiBub25lOyI+PC9yZWN0PjxkZWZzPjxjbGlwcGF0aCBpZD0iY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3Ij48cmVjdCB4PSIwLjAwIiB5PSIwLjAwIiB3aWR0aD0iNDguMDAiIGhlaWdodD0iMTIuMDAiPjwvcmVjdD48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY3BNQzR3TUh3ME9DNHdNSHd3TGpBd2ZERXlMakF3KSI+PHBvbHlnb24gcG9pbnRzPSIzLjQyLDExLjE0IDMuNDIsNi4yNyA2LjU5LDcuODMgOS43NSw3LjA5IDEyLjkyLDYuNzcgMTYuMDksNy41MSAxOS4yNSw5LjIyIDIyLjQyLDkuMjIgMjUuNTgsNy42OSAyOC43NSw3LjQxIDMxLjkxLDcuNTEgMzUuMDgsOC4xOSAzOC4yNSw2LjA5IDQxLjQxLDcuMzAgNDQuNTgsNy41OCA0NC41OCwxMS4xNCAiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDEuNTA7IHN0cm9rZTogbm9uZTsgZmlsbDogI0QzRDNEMzsiPjwvcG9seWdvbj48cmVjdCB4PSIxOC41MyIgeT0iOC41MCIgd2lkdGg9IjEuNDQiIGhlaWdodD0iMS40NCIgc3R5bGU9InN0cm9rZS13aWR0aDogMS41MDsgc3Ryb2tlOiBub25lOyBmaWxsOiAjRkYwMDAwOyI+PC9yZWN0PjxyZWN0IHg9IjM3LjUzIiB5PSI1LjM3IiB3aWR0aD0iMS40NCIgaGVpZ2h0PSIxLjQ0IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxLjUwOyBzdHJva2U6IG5vbmU7IGZpbGw6ICNGRjAwMDA7Ij48L3JlY3Q+PC9nPjwvc3ZnPg==" class="svglite img-fluid"></td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
