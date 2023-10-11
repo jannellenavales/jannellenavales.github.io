@@ -1,0 +1,231 @@
+---
+title: "Assignment 4"
+author: "Jannelle Navales"
+date: "2023-10-04"
+categories: [ tidyverse, r, ggplot2]
+---
+
+**Final Output Hackathon Assignment** (some practice for code is below as well)
+
+```{r}
+# Load necessary libraries if not already loaded
+library(dplyr)
+library(ggplot2)
+#load dataset
+roaddeaths <- read.csv("~/Downloads/Road traffic accidents.csv")
+# Filter the dataset for the year 2021
+year_2019_data <- subset(roaddeaths, Year == 2019)
+
+# Calculate the total deaths for all ages and both sexes in 2019
+total_deaths_2019 <- year_2019_data %>%
+  filter(Sex == "All" & Age.Group == "[All]")
+
+# Specify the number of top countries you want (e.g., top 5)
+T <- 5
+# Get the top T countries with the highest road accidents in 2019
+top_5_countries <- total_deaths_2019 %>%
+  top_n(T, Number)
+#Some calculations for ploting
+top_5_countries$wc <- cumsum(top_5_countries$Death.rate.per.100.000.population)
+top_5_countries$sp <-top_5_countries$wc - top_5_countries$Death.rate.per.100.000.population
+top_5_countries$mp <- with(top_5_countries,sp +(wc-sp)/2)
+# plotting
+
+custom_colors <- c("Brazil" = "firebrick", "Mexico" = "navy", 
+                   "Russian Federation" = "seagreen", "Thailand" = "chocolate", 
+                   "United States of America" = "orchid")
+ggplot(top_5_countries, aes(ymin= 0)) +
+  geom_rect((aes(xmin = sp, xmax = wc, ymax = Number, fill = Country))) +
+  geom_text(aes(x = mp, y = Number * 0.5, label = c("Brazil", "Mexico", 
+                                                    "Russia", "Thailand", "USA"))) + 
+  theme_bw() + 
+  theme(legend.position = "none") + 
+  labs(
+    title = "Road Deaths and Death Rates for Countries with the Highest Mortality",
+    x = "Death Rate (per 100,000 population)",
+    y = "Number of Road Accident Deaths",
+  ) +
+  scale_fill_manual(values = custom_colors)
+```
+
+```{r}
+library(dplyr)
+library(ggplot2)
+
+#load dataset
+roaddeaths <- read.csv("~/Downloads/Road traffic accidents.csv")
+# Filter the dataset for the year 2019 $ 2020
+year_2019_2020_data <- subset(roaddeaths, Year == 2019 | Year == 2020)
+
+# Calculate the total deaths for all ages and both sexes in 2019 $ 2020
+road_deaths_2019_2020 <- year_2019_2020_data %>%
+  filter(Sex == "All" & Age.Group == "[All]")
+
+# Specify the number of top countries
+T <- 4
+# Get the top 4 countries with the highest road accident deaths
+top_countries<- road_deaths_2019_2020 %>%
+  top_n(T,Number )
+
+# Define custom fill colors
+custom_colors <- c("2019" = "darkslategrey", "2020" = "orchid")
+# Plot
+ggplot(top_countries, aes(x = Country, y = Number, fill = as.factor(Year))) +
+  geom_bar(position = "dodge", stat = "identity") +
+  facet_grid(~ Country, scales = "free_y") +
+  theme(axis.text.x = element_blank()) +
+  labs(title = "Road Accident Deaths", x = NULL, y = "Number of Deaths") +
+  scale_fill_manual(values = custom_colors)
+```
+
+```{r}
+library(ggplot2)
+library(dplyr)
+#load dataset
+roaddeaths <- read.csv("~/Downloads/Road traffic accidents.csv")
+# Filter the dataset for the year 2019
+year_2019_data <- subset(roaddeaths, Year == 2019)
+# Filter the dataset for USA
+usa_2019 <- subset(year_2019_data, Country == "United States of America" 
+                   & Age.Group != "[All]" & Age.Group != "[Unknown]")
+
+# Reorder the levels of Age.Group
+usa_2019$Age.Group <- factor(usa_2019$Age.Group, 
+                             levels = c("[0]", "[1-4]", "[5-9]", "[10-14]", "[15-19]",
+                                        "[20-24]", "[25-29]", "[30-34]", "[35-39]",
+                                        "[40-44]", "[45-49]", "[50-54]", "[55-59]", 
+                                        "[60-64]", "[65-69]", "[70-74]", "[75-79]", 
+                                        "[80-84]", "[85+]"))
+
+# Create the bar plot
+
+ggplot(usa_2019, aes(x = Number)) +
+  geom_bar(aes(y = Age.Group), position = "dodge", stat = "identity", fill = "darkslategrey") +
+  labs(
+    title = "Road Accident Deaths in the USA by Age Group (2019)",
+    x = "Number of Road Traffic Accidents",
+    y = "Age Group"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+# Load the necessary libraries
+library(ggplot2)
+#load dataset
+roaddeaths <- read.csv("~/Downloads/Road traffic accidents.csv")
+# Filter the dataset for the year 2021
+year_2019_data <- subset(roaddeaths, Year == 2019)
+# Create a clustered bar chart
+
+ggplot(year_2019_data, aes(x = Region)) +
+  geom_col(aes(y = Number, fill = Sex), position = "dodge", stat = "identity") +
+  scale_fill_manual(values = c("Male" = "orchid", "Female" = "chocolate", "All" = "darkslategrey")) +
+  labs(
+    title = "Road Accident Deaths by Gender and Region (2019)",
+    x = NULL,
+    y = "Number of Road Traffic Accidents",
+    fill = "Gender"
+  ) +
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+Practice 1
+
+```{r}
+rt <- read.csv("~/Downloads/Road traffic accidents.csv")
+
+##practice variable width
+
+#downloading libraries
+library(ggplot2)
+library(hrbrthemes)
+
+#make data
+#each include column
+data <- data.frame(
+  group=c("A" ,"B" ,"C" ,"D" ) ,
+  value=c(33,62,56,67) ,
+  number_of_obs=c(100,500,459,342)
+)
+View(data)
+
+
+# Calculate the future positions on the x axis of each bar (left border, central position, right border)
+#cumsum() adds the values of each column to that point, including the 30 added to right
+#added 30 to each
+data$right <- cumsum(data$number_of_obs) + 30*c(0:(nrow(data)-1))
+#creates left border?
+data$left <- data$right - data$number_of_ob
+View(data)
+
+# Plot
+#xmin,xmax,ymin,ymax specify annotations of rectangles
+#xend,yend geometric curves
+#aes in gg plot modifies overall plot
+#colour = group -> authomatic color?
+ggplot(data, aes(ymin = 0)) + 
+    geom_rect(aes(xmin = left, xmax = right, ymax = value, colour = group, fill = group)) +
+    xlab("number of obs") + 
+    ylab("value") +
+    theme_ipsum() +
+    theme(legend.position="none") 
+
+```
+
+Chart 1
+
+```{r}
+rt <- read.csv("~/Downloads/Road traffic accidents.csv")
+chart1 <- data.frame(
+  region=c("AF" ,"AS" ,"CSA" ,"EU", "NAC", "OA")
+)
+View(chart1)
+```
+
+Practice 2
+
+```{r}
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+
+
+library(kableExtra)
+dt <- mtcars[1:5, 1:6]
+View(dt)
+
+#displays data set in HTML format
+kbl(dt)
+
+#styling applies bootstrap
+dt %>%
+  kbl() %>%
+  kable_styling()
+
+#other formats available - see https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html
+#can add caption in kbl
+
+dt %>%
+  kbl(caption = "Displaying Car Data") %>%
+  kable_styling()
+
+
+mpg_list <- split(mtcars$mpg, mtcars$cyl)
+disp_list <- split(mtcars$disp, mtcars$cyl)
+inline_plot <- data.frame(cyl = c(4, 6, 8), mpg_box = "", mpg_hist = "",
+                          mpg_line1 = "", mpg_line2 = "",
+                          mpg_points1 = "", mpg_points2 = "", mpg_poly = "")
+inline_plot %>%
+  kbl(booktabs = TRUE) %>%
+  kable_paper(full_width = FALSE) %>%
+  column_spec(2, image = spec_boxplot(mpg_list)) %>%
+  column_spec(3, image = spec_hist(mpg_list)) %>%
+  column_spec(4, image = spec_plot(mpg_list, same_lim = TRUE)) %>%
+  column_spec(5, image = spec_plot(mpg_list, same_lim = FALSE)) %>%
+  column_spec(6, image = spec_plot(mpg_list, type = "p")) %>%
+  column_spec(7, image = spec_plot(mpg_list, disp_list, type = "p")) %>%
+  column_spec(8, image = spec_plot(mpg_list, polymin = 5))
+View(mtcars)
+```

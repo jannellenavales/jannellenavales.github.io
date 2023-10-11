@@ -5,6 +5,7 @@ date: "2023-09-27"
 categories: [data analysis, big data, overfitting, overparameterization, tidyverse, r, scatterplot, ggplot2]
 ---
 
+
 Hello! This assignment contains 3 sections:
 
 1.  Review: The Parable of Google Flu: Traps in Big Data Analysis
@@ -37,6 +38,7 @@ Wickham also acknowledges the advantages coding may have in data visualization o
 As shown in Assignment 1, Ascombe (1973) displays different graphs that are shown to have the same r-coefficient via linear regression analysis. The problem that this data showcases is that simply knowing the r-value is NOT enough to have a complete picture of the data. Graph 1 (Top Row, Left) does not have any problems - the data point distribution strongly suggests a positive, linear relationship. In contrast, Graph 2 (Top Row, Right) suggests a non-linear fit model. The bottom row graphs also hint at the effect of an outlier on its coefficient correlation.
 
 The graphs from Ascombe can be seen below. Note that these graphs are modified from the originals, as I played around with the code to experiment with changing colors, line types, plotting characters and fonts without packages:
+
 
 ```{r}
 ## Anscombe (1973) Quartlet
@@ -103,7 +105,9 @@ par(op)
 #lty changes the type of line (dotted, semi dotted)
 ```
 
+
 Next, I wanted to see how I could change the plots using ggplot2 (the tidyverse package). These are the results of my experimentation below:
+
 
 ```{r}
 library(tidyverse)
@@ -138,7 +142,9 @@ ggplot(anscombe, aes(x=x4, y=y4)) + geom_point(size=2, shape=17,color="violetred
 
 ```
 
+
 **IV. Running the Pre-Hackathon Data**
+
 
 ```{r}
 ## Download COVID data from OWID GitHub
@@ -164,3 +170,4 @@ axis(1, x, format(x, "%Y-%m"), cex.axis = .7, las = 3 , gap.axis =1.5, tick = FA
 identify(x,y,owideu$location, ps=8, atpen=TRUE) # Manually identify cases by mouse click
 
 ```
+

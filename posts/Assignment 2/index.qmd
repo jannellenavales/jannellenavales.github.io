@@ -146,6 +146,7 @@ In this section, I tried using several functions to create graphs out of the Hap
 
 ```{r}
 library(readxl)
+#2 is the number of the spreadsheet
 hpi2019 <- read_excel("~/Downloads/happy-planet-index-2006-2020-public-data-set.xlsx", 2)
 #eliminates unneccesary columns
 hpi2019 <- hpi2019[-c(1:7),]
