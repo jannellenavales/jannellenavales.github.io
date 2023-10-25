@@ -1,0 +1,94 @@
+---
+title: "Assignment 7"
+author: "Jannelle Navales"
+date: "2023-10-20"
+categories: [r graphics, ggplot2, exporting]
+---
+```{r}
+library(tidyverse)
+library(dplyr)
+library(readxl)
+#Load dataset
+WDI <- read_excel("Downloads/WDI (1).xlsx")
+
+#Cleaning Data
+WDI <- WDI[ , -4] #delete unneccesary column
+
+#rename columns
+names(WDI)[names(WDI) == "1991 [YR1991]"] <- "1991"
+names(WDI)[names(WDI) == "2001 [YR2001]"] <- "2001"
+names(WDI)[names(WDI) == "2011 [YR2011]"] <- "2011"
+names(WDI)[names(WDI) == "2021 [YR2021]"] <- "2021"
+
+#filter for 2021 only
+year_2021_data <- WDI[ , -4:-6]
+View(year_2021_data)
+
+
+# Create a new column for grouping based on the repeating pattern (every 5 rows)
+year_2021_data  <- year_2021_data  %>%
+  mutate(Group = rep(1:(n() %/% 5), each = 5))
+
+# Pivot the data to create separate columns for each Series Name
+year_2021_data  <- year_2021_data %>%
+  pivot_wider(
+    id_cols = c("Country Name", "Country Code", "Group"),
+    names_from = `Series Name`,
+    values_from = `2021`
+  )
+
+# Clean up column names
+colnames(year_2021_data) <- gsub(" ", "_", colnames(year_2021_data))
+
+# Remove the "Group" column 
+year_2021_data  <- year_2021_data  %>%
+  select(-Group)
+
+#Create a Scatterplot for Mortality Rate and Fertility Rate
+#Defining Variables
+x <- year_2021_data$`Mortality_rate,_under-5_(per_1,000_live_births)`
+y <- year_2021_data$`Fertility_rate,_total_(births_per_woman)`
+#Setting graph parameters
+par(las=1, mar=c(4, 4, 5, 4))
+plot.new()
+plot.window(xlim=c(0,120), ylim=c(0, 7))
+points(x, y, pch=21)
+par(col="black", fg="black", col.axis="black")
+axis(1, at=seq(0, 120, 20))
+axis(2, at=seq(0,7,1))
+#plotting a box on just 2 axes
+box(bty="L")
+mtext("Mortality Rate Under Age 5 (Per 1,000 Births", side=1, line=3)
+#las 0 means sideways label
+mtext("Fertility Rate", side=2, line=3, las=0)
+mtext("Comparing Mortality Rate vs. Fertility Rate", side=3, line=3,cex=1.25)
+par(mar=c(3, 3, 2, 3), col="black", fg="black", col.axis="black")
+
+#Create a Bubble Chart - ggplot2 - birth rate, death rate, population
+ggplot(year_2021_data, aes(x = `Birth_rate,_crude_(per_1,000_people)`, y = `Death_rate,_crude_(per_1,000_people)`, size = `Population,_total`)) +
+  geom_point(color = "grey76") +
+  scale_size_continuous(range = c(5, 15)) +
+  labs(
+    x = "Crude Birth Rate per 1,000 people",
+    y = "Crude Death Rate per 1,000 people",
+    title = "Comparing Birth and Death Rates by Country"
+  ) +
+  theme_minimal() +
+  guides(size = "none")
+
+#Create Line Graph of Fertility Rate By Year For the Top 5 Countries
+#Use WDI
+
+
+
+
+
+
+
+
+
+
+
+
+
+

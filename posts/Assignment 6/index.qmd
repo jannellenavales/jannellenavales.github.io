@@ -1,0 +1,8 @@
+---
+title: "Assignment 6"
+author: "Jannelle Navales"
+date: "2023-10-20"
+categories: [shiny, iframe]
+---
+
+<iframe src="https://xsj1t2-jannellenavales.shinyapps.io/assignment6/" width="800" height="600"></iframe>
