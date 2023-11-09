@@ -1,0 +1,15 @@
+---
+title: "Assignment 8"
+author: "Jannelle Navales"
+date: "2023-11-1"
+categories: [dashboard]
+---
+This week, I mostly brainstormed ideas for dashboards and looked up examples of R Markdown files. Unfortunately, R studio does not support a dashboard yet.
+```{r}
+
+
+
+
+
+
+

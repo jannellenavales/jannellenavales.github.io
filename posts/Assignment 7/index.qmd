@@ -4,6 +4,7 @@ author: "Jannelle Navales"
 date: "2023-10-20"
 categories: [r graphics, ggplot2, exporting]
 ---
+This hackathon is currently a WIP?
 ```{r}
 library(tidyverse)
 library(dplyr)
