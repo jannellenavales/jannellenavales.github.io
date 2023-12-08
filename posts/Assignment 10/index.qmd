@@ -4,7 +4,19 @@ author: "Jannelle Navales"
 date: "2023-11-9"
 categories: [spatial data]
 ---
-Creating a Leaflet of My Own Data - Euless City Hall
+**Discussing 3D Visualization and Basic Elements of Temporal and Spatial Dimensions**
+According to MacEachren and Taylor's map use cube, multidimensional visualization consists of 1) presenting, 2) synthesis, 3) analysis, and 4) exploration. At the first step, known data is presented, and not much interaction is expected. However, by the end of the visualization process, graphics should be highly interactive and allow for viewers to discover previously unknown findings. 
+
+From my perspective, the idea of the map use cube makes a lot of sense to me. Like 2D visualization, there is raw data that can be presented, although the format may not allow for exploration of more insights or is an incomplete picture of the data. As more relationships between different variables are made, the further knowledge one can discover. Such relationships influence which potential interactions are effective of telling the story of the data. Of course, the goal of this approach is to keep the message public - valuable to anyone who comes across it and can be used for solutions.
+
+Based on this approach, there are 3 elements I consider to be important regarding temporal and spatial dimensions:
+
+1. Structure: How is data aggregated or arranged (the latter more important for spatial dimensions)?
+2. Relationships: What is the hierarchy of data? Are they aligned (synchronized in temporal data)?
+3. Interaction: consider animation, choices, and other personal characteristics to enhance visualizations
+
+
+**Creating a Leaflet of My Own Data - Euless City Hall**
 ```{r}
 ## R Leaflet sample program 
 ## file: spatial_leaflet.R
@@ -63,7 +75,7 @@ eppsmap %>%
 
 ```
 
-Run Spatial 01
+**Run Spatial 01**
 ```{r}
 # Collecting and mapping Census data using API
 # install.packages(c("tidyverse", "ggmap","mapproj", "tidycensus","tigris"), repos = "http://cran.us.r-project.org")
@@ -120,7 +132,8 @@ ggplot(data = us_median_age19, aes(fill = estimate)) +
   theme(text = element_text(family = "Palatino"), plot.title = element_text(hjust = 0.5))
 
 # Create another map using 2009 and 2020 data and do comparison?
-# Let's try 2009 and 2020 to do a ten year comparison!
+# 2020 data was never released - not available in tidycensus
+# Let's try 2009 and 2014 to do a five year comparison! Then I'll try 2020.
 
 # 2014
 # Get a list of American Community Survey (ACS) 2014 variables
@@ -181,9 +194,11 @@ ggplot(data = us_median_age09, aes(fill = estimate)) +
 
 # Based on the maps, Utah consistently has the youngest population, while the Northeast and Florida consistently the oldest. # In 2014, it seems as if the overall median age was the youngest in 2014.
 
+
+
 ```
 
-Run Spatial 02
+**Run Spatial 02**
 ```{r}
 # Collecting and mapping Census data using API: State data and maps
 lapply(c("tidyverse", "ggmap","mapproj", "tidycensus","tigris", "tmap", "mapview"), require, character.only = TRUE)

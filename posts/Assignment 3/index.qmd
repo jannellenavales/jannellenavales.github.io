@@ -5,13 +5,15 @@ date: "2023-09-27"
 categories: [data analysis, big data, overfitting, overparameterization, tidyverse, r, scatterplot, ggplot2]
 ---
 
-Hello! This assignment contains 3 sections:
+Hello! This assignment contains 4 sections:
 
 1.  Review: The Parable of Google Flu: Traps in Big Data Analysis
 
 2.  Review: Wickham - Data Visualization and Data Analysis (EMBL)
 
 3.  Modifying Anscombe.R using base and ggplot2 graphics
+
+4.  Experimenting with the Pre-Hackathon Data
 
 **I. Review: The Parable of Google Flu: Traps in Big Data Analysis**
 

@@ -5,6 +5,34 @@ date: "2023-10-11"
 categories: [r graphics, ggplot2, exporting]
 ---
 
+Hello! This assignment contains 4 sections:
+
+1.  Literate Programming Views
+
+2.  Elements of Music Visualization
+
+3.  Four Pillars of Visualization
+
+4.  Assignment 5 (Plotting Without Packages, ggplot2, exporting files)
+
+**Discussion of Literate Programming**
+Do you think of programming as a piece of literature? Donald Knuth does. In Knuth's proposal of literate programming, he implores programmers to shift away from the mindset of instructing a computer, and instead focusing on communicating with other humans who will interact with and develop the code. In other words, Knuth calls for detailed, readable, and easy to understand documentation. Such documentation can be supplemented by diagrams that display the relationships and reasoning behind instructions. And as developers return to modify and reference their code over time, literate programming establishes an intuitive way to maintain and refer to guidelines as well as make easy changes.
+
+As an HCI student, I highly endorse this idea of literate program as it seems to bridge the relationship between humanity and technology. It is important to not just continously make products easy to use, but also easier to develop. For coding novices, knowing the "why" improves the retention of knowledge for the future and is just as important as the "what." Personally, I know programming is not the most enjoyable task for me, but I appreciate instructions, comments, and good arrangements of integrated code that allow me to think of my task a narrative story (I actually enjoy reading more). This idea extends beyond coding as well. In the field of User Experience, Design Systems are the guidelines used to define the specifics of a user interface. Clear outlining of the necessary components as well as knowing the reasoning behind using them overall contributes to more unified design in the end.
+
+**Elements of Music Visualization**
+For this week's assignment, I was able to watch Stephen Malinowski's visualization of Bach, Fugue in A minor. I am a musician (I've played piano for 15 years and sing as well), so this visualization was interesting to watch.
+
+One interesting aspect about this piece is that it is a double fugue, meaning that there are two different subjects, or main musical themes within the song (think of it as a 2-in-1). Malinowski distinguishes between the two fugues by utilizing different shapes - circles connected with lines for the 1st fugue and rectangular bars for the 2nd fugue. This may appear confusing to viewers at first, but upon learning of the double nature of the song, I believe most would draw the conclusion that the nature of the shapes was a clever addition. Malinowski also incorporates other elements to describe aspects of the song. Color represents the different instruments used. Differences in vertical location of circles/bars indicate the pitch of the tune - higher pitches go with higher locations and vice versa. The size of circles and length of rectangles indicate how short or long a note is held for. Animation helps viewers keep track of the current place in the song.
+
+One criticism I have of this particular visualization is that I do not see a clear indication of tone (loudness vs. quietness). Most music has indicators of this for different sections or a whole piece, such as forte, piano, etc. Given that the visualization is already rich in how its variables are represented, it would be interested to see how tone would be incorportated if Malinowski were ever to recreate this.
+
+**The Four Pillars of Visualization**
+1. Purpose - why do we need this visualization? Who is going to view it, and what goals do we have in creating this?
+2. Content - what are we including in terms of our variables and the relationships between them? What are we NOT including?
+3. Structure - How should we display our chosen data/relationships? Think of the types of charts that are most appropriate (bars, lines, etc.).
+4. Formatting - Add to the basic structure to make it appealing and easy to understand by viewers, not the other way around.
+
 **Plotting Without Packages**
 
 ```{r}

@@ -4,6 +4,19 @@ author: "Jannelle Navales"
 date: "2023-11-8"
 categories: [time-series]
 ---
+Before starting this assignment, it's important to define the following terms:
+
+Temporal Dependency: The extent to which current behavior depends on previous behavior (in other words, how is influenced from data from an earlier time?
+Spatial Dependency: The extent to which behavior/data in different geographical areas affect each other. 
+ARIMA (pdq): ARIMA stands for AutoRegressive Integrated Moving Average. It is popularly used to forecast in time-series data. It evaluatues temporal dependency (p), considers stationarity (d, constants in the data), and the moving average, or relationship between current value and random points not accounted for in p (q).
+Stationarity: This refers to the constant characteristics of time series data. Characteristics include variance and autocorrelation.
+First Difference: It is the operation applied to data to achieve stationarity, and is used in different models such as ARIMA. By removing each data point from the previous point, trends/variance can be eliminated for future evaluation.
+First Order Autocorrelation: It is the strength/direction of the relationship of the data point and its previous one, known as a LAG.
+
+3 Charts that can be used for plotting time: 
+1.Barcharts - discrete data
+2.Scatterplots - discrete data
+3.Line Graphs - continuous data 
 ```{r}
 library(quantmod) 
 

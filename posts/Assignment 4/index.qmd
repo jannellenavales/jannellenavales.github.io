@@ -4,6 +4,22 @@ author: "Jannelle Navales"
 date: "2023-10-04"
 categories: [ tidyverse, r, ggplot2]
 ---
+Hello! This assignment contains 2 sections:
+
+1.  Comparing Two Perspectives of Data Visualization
+
+2.  Hackathon Assignment 1
+
+**Comparing Two Perspectives of Data Visualization**
+I have decided to compare and contrast the styles of Colin Ware and Hadley Wickham.
+
+With a background in cognitive science, I find it easy to resonate with Colin Ware, who is also a psychologist and researcher at heart. Ware very much focuses on the using theories of human perception to arrange elements of and design visualizations. Ware emphasizes knowing the "why" behind decisions, citing different theories of cognition such as parallel processing as justification for specific decisins
+
+In constrast, Hadley Wickham is very much a tried and true computer programmer. He actually contributed significantly to the development of R, writing mulitple packages, including dplyr and ggplot2. These packages corresponded to several key principles of Wickham's key approach - created a simple, layered visualization. Such layers included the cleaning of data before mapping specific features (helped tremendously by dplyr) before plotting other elements. GGPlot2's structure of associating different elements via plus signs fits the theme of layers to Wickham's approach. Yet even with this structure, Wickham emphasizes that it can actually allow for more complex and interactive visualizations to be made, as it is easy to manipulate layers that are easy to read.
+
+While Wickham and Ware seem to have very different approaches, they each share some similarities. Ware and Wickham advocate for the processing before final visualization. Ware does this by emphasizing sensory processes of learning information, while Wickham acknowledges this through easy ways to manipulate data. Wickham also acknowledges how aesthetics, many of which are perceptual elements Ware likes to emphasize, are mapped onto objects to enhance their meaning. Even with different ways of thinking about visualization, both authors have a shared goal of adovating for visuals that are easy to understand and process for all
+
+
 
 **Final Output Hackathon Assignment** (some practice for code is below as well)
 
