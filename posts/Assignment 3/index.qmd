@@ -1,0 +1,168 @@
+---
+title: "Assignment 3"
+author: "Jannelle Navales"
+date: "2023-09-27"
+categories: [data analysis, big data, overfitting, overparameterization, tidyverse, r, scatterplot, ggplot2]
+---
+
+Hello! This assignment contains 4 sections:
+
+1.  Review: The Parable of Google Flu: Traps in Big Data Analysis
+
+2.  Review: Wickham - Data Visualization and Data Analysis (EMBL)
+
+3.  Modifying Anscombe.R using base and ggplot2 graphics
+
+4.  Experimenting with the Pre-Hackathon Data
+
+**I. Review: The Parable of Google Flu: Traps in Big Data Analysis**
+
+Back in 2013, one may have been familiar with Google Flu Trends (GFT), a website created by Google to keep track of influenza case estimates. At the time, the platform was heralded as being an innovative use of big data. But while the GFT had good intentions in trying to predict similar trends in data with other organizations, the GFT produced various errors than expected. What happened?
+
+The GFT is an example of what some people call the big data analytics pitfall - the idea that using big data can replace traditional methods of data collection and analysis. In traditional studies, factors such as construct validity and reliability are given considerable attention, as to make sure data represents concepts as intended. And these factors are sometimes overlooked when we utilize big data. For example, the GFT considered the search term "high school basketball" to be indicative of flu incidences. The authors hypothesize that the platform conflated "winter" words with flu-case indicative words (for context, influenza season and high school basketball seasons typically occur in winter. Similar cases can be caused by a concept known as overfitting, for which occurs when a model trained from a training set does not give accurate predictions for new data. This sometimes causes the inclusion of more items than intended. Overfitting can further be explained by the practice of overparameterization, when the number of parameters used exceeds the size of the training dataset. It should be noted that this is a common practice in big data analysis.
+
+Finally, the article points out what I find the fatal flaw of the GFT; it relies on an algorithm that is meant to drive revenue and business needs, which can differ from what the search patterns the general population utilize for the sake of simply treating the flu. This demonstrates the need for data scientists to pay closer attention to transparency, constructs represented by algorithms, and recognize big data's weaknesses.
+
+**II. Review: Wickham - Data Visualization and Data Analysis (EMBL)**
+
+In Hadley Wickham's keynote speech at EMBL, Wickham goes over various visualization techniques, specifically within the tidyverse package for R, and advocates for how code can be quite useful for visualization. At first, he starts out with how the tidyverse packages came to be. The need to more easily modify the visual aspects of graphics helped spur the creation of ggplot, which has since evolved into ggplot2. But as Wickham noted and in my experience as well, creating the visualization is not the most difficult part of the process. Formatting the data correctly, however, can be lengthy, which inspired to creation of reshape, now in its current iteration of tidyr. The dplyr and purrr packages were further created to help aggregate data correctly. And thus, came the creation of the tidyverse.
+
+Through walking through a visualization example using ggplot2, one can see how such packages were created with the grammar of graphics in mind. For example, the geom_point() function can easily control the aesthetics of different visual components. Another function helps control the scale of the data, another noted step in the GoG theory. Wickham claims that this structure, which enables easy modification to orthogonal, independent components, greatly increases users' ability to explore data and discover greater connections.
+
+Wickham also acknowledges the advantages coding may have in data visualization over other technologies, such as the spreadsheet interfaces of Tableau and Excel. It is said that non-coding platforms have a much nicer learning curve and can be less time-consuming than that of coding platforms. However, much of these platforms have default settings that do not communicate data as effectively as intended. I also personally find it more difficult to replicate the formatting of data presentation (i.e. formulas) for other data sets when using such tools. Meanwhile, coding allows for easy reproduction, a wider range of customization, and a greater ability for users to explore the insights data can offer.
+
+```         
+```
+
+**III. Modifying Anscombe.R using base and ggplot2 graphics**
+
+As shown in Assignment 1, Ascombe (1973) displays different graphs that are shown to have the same r-coefficient via linear regression analysis. The problem that this data showcases is that simply knowing the r-value is NOT enough to have a complete picture of the data. Graph 1 (Top Row, Left) does not have any problems - the data point distribution strongly suggests a positive, linear relationship. In contrast, Graph 2 (Top Row, Right) suggests a non-linear fit model. The bottom row graphs also hint at the effect of an outlier on its coefficient correlation.
+
+The graphs from Ascombe can be seen below. Note that these graphs are modified from the originals, as I played around with the code to experiment with changing colors, line types, plotting characters and fonts without packages:
+
+```{r}
+## Anscombe (1973) Quartlet
+
+data(anscombe)  # Load Anscombe's data
+summary(anscombe)
+
+## Simple version
+plot(anscombe$x1,anscombe$y1)
+summary(anscombe)
+
+# Create four model objects
+lm1 <- lm(y1 ~ x1, data=anscombe)
+summary(lm1)
+lm2 <- lm(y2 ~ x2, data=anscombe)
+summary(lm2)
+lm3 <- lm(y3 ~ x3, data=anscombe)
+summary(lm3)
+lm4 <- lm(y4 ~ x4, data=anscombe)
+summary(lm4)
+plot(anscombe$x1,anscombe$y1)
+abline(coefficients(lm1))
+plot(anscombe$x2,anscombe$y2)
+abline(coefficients(lm2))
+plot(anscombe$x3,anscombe$y3)
+abline(coefficients(lm3))
+plot(anscombe$x4,anscombe$y4)
+abline(coefficients(lm4))
+
+
+## Fancy version (per help file)
+
+ff <- y ~ x
+mods <- setNames(as.list(1:4), paste0("lm", 1:4))
+
+# Plot using for loop
+for(i in 1:4) {
+  ff[2:3] <- lapply(paste0(c("y","x"), i), as.name)
+  ## or   ff[[2]] <- as.name(paste0("y", i))
+  ##      ff[[3]] <- as.name(paste0("x", i))
+  mods[[i]] <- lmi <- lm(ff, data = anscombe)
+  print(anova(lmi))
+}
+
+sapply(mods, coef)  # Note the use of this function
+lapply(mods, function(fm) coef(summary(fm)))
+
+# Preparing for the plots
+op <- par(mfrow = c(2, 2), mar = 0.1+c(4,4,1,1), oma =  c(0, 0, 2, 0), family="Times New Roman")
+#family in par -> changes fonts in graph
+#for Windows users, you can also use windowsFont(), unfortunately, I have a Mac...
+
+# Plot charts using for loop
+for(i in 1:4) {
+  ff[2:3] <- lapply(paste0(c("y","x"), i), as.name)
+  plot(ff, data = anscombe, col = "midnightblue",type="p", pch = 23, bg = "lightseagreen", cex = 1.2,
+       xlim = c(3, 19), ylim = c(3, 13))
+  abline(mods[[i]], col = "firebrick", lwd=2, lty=2)
+}
+mtext("Anscombe's 4 Regression data sets", outer = TRUE, cex = 1.5)
+par(op)
+#plotting character can be changed using pch
+#type indicates whether points (p), lines(l), or both(b) should be plotted
+#lty changes the type of line (dotted, semi dotted)
+```
+
+Next, I wanted to see how I could change the plots using ggplot2 (the tidyverse package). These are the results of my experimentation below:
+
+```{r}
+library(tidyverse)
+
+## Anscombe (1973) Quartlet
+
+data(anscombe)  # Load Anscombe's data
+
+
+
+## Simple version
+ggplot(anscombe, aes(x=x1, y=y1))+geom_point()
+
+## geom_point changes graph characteristics
+## can change size, shape, color
+ggplot(anscombe, aes(x=x1, y=y1)) + geom_point(size=2, shape=5)
+## if you wnat to just change size of POINTS, use (aes(size=1)) within geom_point
+## if you ever wanted to label points, use geom_text(label=rownames(anscombe))
+
+##plot regression line using geom_smooth
+#specify for linear with method=lm, delete range with se=FALSE
+
+ggplot(anscombe, aes(x=x1, y=y1)) + geom_point(size=2, shape=17,color="lightseagreen") + geom_smooth(method=lm, se=FALSE,color="firebrick3",linetype="dashed")+xlim(3,19)+ylim(3,13)
+
+#you can change the line type and color within geom_smooth as well
+ggplot(anscombe, aes(x=x2, y=y2)) + geom_point(size=2, shape=17,color="mediumpurple3") + geom_smooth(method=lm, se=FALSE,color="darkorange4",linetype="dashed")+xlim(3,19)+ylim(3,13)
+ggplot(anscombe, aes(x=x3, y=y3)) + geom_point(size=2, shape=17,color="palegreen3") + geom_smooth(method=lm, se=FALSE,color="deeppink4",linetype="dashed")+xlim(3,19)+ylim(3,13)
+ggplot(anscombe, aes(x=x4, y=y4)) + geom_point(size=2, shape=17,color="violetred1") + geom_smooth(method=lm, se=FALSE,color="hotpink4",linetype="dashed")+xlim(3,19)+ylim(3,13)
+#doing with this with other graphs
+
+
+
+```
+
+**IV. Running the Pre-Hackathon Data**
+
+```{r}
+## Download COVID data from OWID GitHub
+owidall = read.csv("https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data.csv?raw=true")
+View(owidall)
+#Deselect cases/rows with OWID
+#grepl() searches for matches in characters/sequences of characters in string
+owidall = owidall[!grepl("^OWID",owidall$iso_code), ]
+View(owidall)
+#Subset by continent: Europe
+owideu = subset(owidall, continent=="Europe")
+View(owideu)
+
+# Europe data
+y = owideu$new_deaths
+#as.Date converts character objects to date objects
+x = as.Date(owideu$date)
+#xaxt gives the style, 'n' means no scale
+plot(x,y, pch=20, col="#E7298A", cex = .5, xaxt='n', xlab = "Date", ylab = "COVID Deaths in Europe (Daily)")
+#note for format - %Y-%m gives the dates in year/month format
+#tick marks - in this example we do not display
+axis(1, x, format(x, "%Y-%m"), cex.axis = .7, las = 3 , gap.axis =1.5, tick = FALSE)
+identify(x,y,owideu$location, ps=8, atpen=TRUE) # Manually identify cases by mouse click
+
+```

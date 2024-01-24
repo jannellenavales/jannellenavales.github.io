@@ -1,0 +1,20 @@
+---
+title: "Final Project"
+author: "Jannelle Navales"
+date: "2023-11-29"
+categories: [healthcare, data visualization, bar chart, line graph, time series]
+---
+
+**Prescription Drug Pricing in the United States: Analyzing the Concrete and Abstract**
+
+My group chose to do our final project on trends in prescription pricing in the U.S. over time, as well as the effect of legislation on pricing. Our proposal presentation, final project, and paper can be found below:
+
+[Project Proposal](https://slides.com/sharon_j/desk/fullscreen)
+
+[Final Project Dashboard](https://jannellenavales.github.io/Ensemble/Group_finalproject.html)
+
+[Final Paper](https://docs.google.com/document/d/1ZgZJabjZTz6ZB3Y9HjwidVfaRpYlRlh_Bw0W2Idm9wU/edit?usp=sharing)
+
+
+
+

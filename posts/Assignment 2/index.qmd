@@ -1,0 +1,261 @@
+---
+title: "Assignment 2"
+author: "Jannelle Navales"
+date: "2023-09-20"
+categories: [data analysis, r, cleaning data, scatterplot, barchart, histogram, boxplot, perspective chart, pie chart]
+---
+
+Hello! This assignment contains 3 sections:
+
+1.  Review: Edward Tufte's "The Future of Data Analysis
+
+2.  Learning R Through Paul Murrell's Examples
+
+3.  Applying R Basics to Happy Planet Index Data
+
+**I. Review: Edward Tufte's "The Future of Data Analysis**
+
+For this week's assignment, I was able to watch "The Future of Data Analysis," the keynote speech given by Edward Tufte at Microsoft's Machine Learning & Data Science Summit in 2016. As I desire to work in an information-design related role in the future, I believe there are a lot of great takeaways from this talk to consider in my future work.
+
+One aspect that I really liked about Tufte's discussion is that he brought in examples of the role of data visualization across various fields. For example, Tufte began with introducing a visualization of vaccination rates during the COVID-19 pandemic. However, he also noted how visualization can be influenced and utilized in other fields. He does not downplay the power of visualization in engaging others, which he says is the key to communicating strong data effectively. At the same time, Tufte also stressed that there are issues in data that must be addressed. With a background in psychology, I nodded along when the replication crisis in the field was mentioned. Tufte's advice - prespecify important factors when dealing with a confirmatory study - falls in line with what I've learned so far about processes of data visualization and guidelines for my field of user research.
+
+I also very much enjoyed some words of wisdom that Tufte gave during this talk. At one point, Tufte mentions that it's important to have an open mind, but not an empty head. This is similar to a piece of advice I had received - "hold strong opinions loosely." I believe that it's important to critically analyze the world around you and be able to form a viewpoint from the data you can collect. However, as time and other factors shift, more observations can be made that might not fall in line with the patterns that occurred earlier. Therefore, it's important to know what constitutes good data, and how you can apply it to topics that must be addressed.
+
+**II. Learning R Through Paul Murrell's Examples**
+
+The following section is the result of observing Paul Murrell's examples to learn R. Comments/Questions in the code have been addressed below:
+
+```{r}
+### Paul Murrell's R examples (selected)
+
+## Start plotting from basics 
+# Note the order
+plot(pressure, pch=24)  # Can you change pch? Author: changed to triangle-shaped data points
+text(150, 600, 
+     "Pressure (mm Hg)\nversus\nTemperature (Celsius)")
+
+#  Examples of standard high-level plots 
+#  In each case, extra output is also added using low-level 
+#  plotting functions.
+# 
+
+# Setting the parameter (3 rows by 2 cols) for each image on 1 page
+par(mfrow=c(3, 2))
+
+# Scatterplot
+# Note the incremental additions
+
+x <- c(0.5, 2, 4, 8, 12, 16)
+y1 <- c(1, 1.3, 1.9, 3.4, 3.9, 4.8)
+y2 <- c(4, .8, .5, .45, .4, .3)
+
+# Setting label orientation, margins c(bottom, left, top, right) & text size
+par(las=1, mar=c(4, 4, 2, 4), cex=.7) 
+plot.new()
+plot.window(range(x), c(0, 6))
+lines(x, y1)
+lines(x, y2)
+points(x, y1, pch=16, cex=1) # Try different cex value? Author reduced cex  
+points(x, y2, pch=21, bg="cornflowerblue", cex=1)  # Different background color? Author changed to blue, Reduced cex
+par(col="gray50", fg="gray50", col.axis="gray50")
+axis(1, at=seq(0, 16, 4)) # What is the first number standing for? This stands for orientation of axis, 1=bottom,2=left,3=top,4=right. In this example, the bottom axis being plotted.
+axis(2, at=seq(0, 6, 2))
+axis(4, at=seq(0, 6, 2))
+box(bty="u")
+mtext("Travel Time (s)", side=1, line=2, cex=0.8)
+mtext("Responses per Travel", side=2, line=2, las=0, cex=0.8)
+mtext("Responses per Second", side=4, line=2, las=0, cex=0.8)
+text(4, 5, "Bird 131")
+par(mar=c(5.1, 4.1, 4.1, 2.1), col="black", fg="black", col.axis="black")
+
+# Histogram
+# Random data
+Y <- rnorm(50)
+# Make sure no Y exceed [-3.5, 3.5]
+Y[Y < -3.5 | Y > 3.5] <- NA # Selection/set range
+x <- seq(-3.5, 3.5, .1)
+dn <- dnorm(x)
+par(mar=c(4.5, 4.1, 3.1, 0))
+hist(Y, breaks=seq(-3.5, 3.5), ylim=c(0, 0.5), 
+     col="gray80", freq=FALSE)
+lines(x, dnorm(x), lwd=2)
+par(mar=c(5.1, 4.1, 4.1, 2.1))
+
+# Barplot
+par(mar=c(2, 3.1, 2, 2.1)) 
+midpts <- barplot(VADeaths, 
+                  col=gray(0.1 + seq(1, 9, 2)/11), 
+                  names=rep("", 4))
+mtext(sub(" ", "\n", colnames(VADeaths)),
+      at=midpts, side=1, line=0.5, cex=0.5)
+text(rep(midpts, each=5), apply(VADeaths, 2, cumsum) - VADeaths/2,
+     VADeaths, 
+     col=rep(c("white", "black"), times=3:2), 
+     cex=0.8)
+par(mar=c(5.1, 4.1, 4.1, 2.1))  
+
+# Boxplot
+par(mar=c(3, 4.1, 2, 0))
+boxplot(len ~ dose, data = ToothGrowth,
+        boxwex = 0.25, at = 1:3 - 0.2,
+        subset= supp == "VC", col="white",
+        xlab="",
+        ylab="tooth length", ylim=c(0,35))
+mtext("Vitamin C dose (mg)", side=1, line=2.5, cex=0.8)
+boxplot(len ~ dose, data = ToothGrowth, add = TRUE,
+        boxwex = 0.25, at = 1:3 + 0.2,
+        subset= supp == "OJ")
+legend(1.5, 9, c("Ascorbic acid", "Orange juice"), 
+       fill = c("white", "gray"), 
+       bty="n", cex=0.5)
+#changed to fit graph
+par(mar=c(5.1, 4.1, 4.1, 2.1))
+
+# Persp
+x <- seq(-10, 10, length= 30)
+y <- x
+f <- function(x,y) { r <- sqrt(x^2+y^2); 10 * sin(r)/r }
+z <- outer(x, y, f)
+z[is.na(z)] <- 1
+# 0.5 to include z axis label
+par(mar=c(0, 0.5, 0, 0), lwd=0.5)
+persp(x, y, z, theta = 30, phi = 30, 
+      expand = 0.5)
+par(mar=c(5.1, 4.1, 4.1, 2.1), lwd=1)
+
+# Piechart
+par(mar=c(0, 2, 1, 2), xpd=FALSE, cex=0.5)
+pie.sales <- c(0.12, 0.3, 0.26, 0.16, 0.04, 0.12)
+names(pie.sales) <- c("Blueberry", "Cherry",
+                      "Apple", "Boston Cream", "Other", "Vanilla")
+pie(pie.sales, col = gray(seq(0.3,1.0,length=6))) 
+
+# Exercise: Can you generate these charts individually?  Try these functions 
+# using another dataset. Be sure to work on the layout and margins
+```
+
+**III. Applying R Basics to Happy Planet Index Data**
+
+In this section, I tried using several functions to create graphs out of the Happy Planet Index Data. The following is a result of my efforts. Some things I want to note:
+
+-   Having to clean the data is an important I had to address that was not taught through observing Murrell's Graphics!
+
+-   It was difficult to address the variable GDP Per Capita, as it contained missing values. This is something I would like to address in the future.
+
+-   More comments in the code were made for me to use for future reference and areas to gain more knowledge in.
+
+```{r}
+library(readxl)
+#2 is the number of the spreadsheet
+hpi2019 <- read_excel("~/Downloads/happy-planet-index-2006-2020-public-data-set.xlsx", 2)
+#eliminates unneccesary columns
+hpi2019 <- hpi2019[-c(1:7),]
+#eliminates unneccesary row
+hpi2019 <- hpi2019[-c(4)]
+#renames column headers
+colnames(hpi2019)[1]="HPI_rank"
+colnames(hpi2019)[2]="Country"
+colnames(hpi2019)[3]="ISO"
+colnames(hpi2019)[4]="Continent"
+colnames(hpi2019)[5]="Pop"
+colnames(hpi2019)[6]="Life_Exp"
+colnames(hpi2019)[7]="Wellbeing"
+colnames(hpi2019)[8]="Ecological_Footprint"
+colnames(hpi2019)[9]="HPI"
+colnames(hpi2019)[10]="Biocapacity"
+colnames(hpi2019)[11]="GDP_per_capita"
+#delete 1st row
+hpi2019 <- hpi2019[-1,]
+
+
+
+#Scatterplot Comparing Life Expectancy and Wellbeing
+#Defining Variables
+x <- hpi2019$Life_Exp
+y <- hpi2019$Wellbeing
+#Setting graph parameters
+par(las=1, mar=c(4, 4, 5, 4))
+plot.new()
+plot.window(xlim=c(50,90), ylim=c(2, 8))
+points(x, y, pch=21)
+par(col="black", fg="black", col.axis="black")
+axis(1, at=seq(50, 90, 5))
+axis(2, at=seq(2,8,1))
+#plotting a box on just 2 axes
+box(bty="L")
+text(60, 7, "This graph shows a trend...", cex=0.5)#refer to coordinates you have set
+mtext("Life Expectancy (years)", side=1, line=3)
+#las 0 means sideways label
+mtext("Wellbeing", side=2, line=3, las=0)
+mtext("Comparing Life Expectancy vs. Wellbeing in Various Countries", side=3, line=3,cex=1.25)
+par(mar=c(3, 3, 2, 3), col="black", fg="black", col.axis="black")
+
+#Creating a Histogram of Ecological Footprints of Countries
+#changes data to a numeric format
+hpi2019$Ecological_Footprint = as.numeric(as.character(hpi2019$Ecological_Footprint))
+Y <- hpi2019$Ecological_Footprint
+Y[Y < 0|Y > 20]
+x<-seq(0,20,1)
+dn <- dnorm(x)
+par(mar=c(4, 4, 4, 4))
+hist(Y, breaks=seq(0, 20,2), ylim=c(0, 0.3), 
+     col="palevioletred2", freq=FALSE, main = "Distribution of Ecological Footprint Among Countries",xlab="Ecological Footprint")
+lines(density(hpi2019$Ecological_Footprint),lwd =2, col = 'black')
+abline(v = mean(hpi2019$Ecological_Footprint), col="darkgreen",lwd = 1.5)
+abline(v = median(hpi2019$Ecological_Footprint), col="gold2",lwd = 1.5)
+
+#legend
+legend(15, 0.22, c("Mean", "Median","Density Line"), 
+       fill = c("darkgreen", "gold2", "black"), 
+       bty="n", cex=0.75)
+
+
+
+par(mar=c(3, 3, 2, 3), col="black", fg="black", col.axis="black")
+
+
+#Creating a Boxplot
+
+par(mar=c(3, 4.1, 2, 0))
+#transforming to numeric data
+hpi2019$Pop = as.numeric(as.character(hpi2019$Pop))
+hpi2019$Life_Exp = as.numeric(as.character(hpi2019$Life_Exp))
+hpi2019$Wellbeing = as.numeric(as.character(hpi2019$Wellbeing))
+hpi2019$HPI_rank = as.numeric(as.character(hpi2019$HPI_rank))
+hpi2019$Continent = as.numeric(as.character(hpi2019$Continent))
+#back to box plot
+label= c("LA", "NAO",
+                      "WE", "MENA", "ARF", "SA", "EECA", "EA")
+boxplot(hpi2019$Life_Exp ~ hpi2019$Continent,col="gray85" , main = "Life Expectancy by Region", xlab="Regions", ylab="Life Expectancy", names=label)
+
+
+
+
+
+
+# Persp Graphic Using HPI, Life Expectancy
+#need increasing order for x and y
+transpose <- t(hpi2019)
+transpose <- as.data.frame(transpose)
+reverse2019 <- rev(transpose)
+reverse2019 <-t(reverse2019)
+reverse2019 <- as.data.frame(reverse2019)
+reverse2019$HPI = as.numeric(as.character(reverse2019$HPI))
+x <- reverse2019$HPI
+y <- x
+z<-matrix(reverse2019$Life_Exp,length(y),length(x))
+# 0.5 to include z axis label
+par(mar=c(0, 0.5, 0, 0), lwd=0.5)
+persp(x, y, z, theta = 15,phi = 30, expand=0.5)
+par(mar=c(5.1, 4.1, 4.1, 2.1), lwd=1)
+
+#Creating a PieChart of Percentage of Countries by Region 
+par(mar=c(0, 2, 1, 2), xpd=FALSE, cex=0.5)
+pie.regions <- c((nrow(hpi2019[hpi2019$Continent == '1',])/nrow(hpi2019)),(nrow(hpi2019[hpi2019$Continent == '2',])/nrow(hpi2019)), (nrow(hpi2019[hpi2019$Continent == '3',])/nrow(hpi2019)), (nrow(hpi2019[hpi2019$Continent == '4',])/nrow(hpi2019)), (nrow(hpi2019[hpi2019$Continent == '5',])/nrow(hpi2019)), (nrow(hpi2019[hpi2019$Continent == '6',])/nrow(hpi2019)), (nrow(hpi2019[hpi2019$Continent == '7',])/nrow(hpi2019)), (nrow(hpi2019[hpi2019$Continent == '8',])/nrow(hpi2019)))
+names(pie.regions) <- c("Latin America", "N. America & Oceania",
+                      "Western Europe", "Middle East & North Africa", "Africa", "South Asia", "Eastern Europe & Central Asia", "East Asia")
+pie(pie.regions, col = gray(seq(0.3,1.0,length=6))) 
+#Would love to learn more on how to order from greatest to least!
+
+
+```

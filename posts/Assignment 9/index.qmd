@@ -1,0 +1,131 @@
+---
+title: "Assignment 9"
+author: "Jannelle Navales"
+date: "2023-11-8"
+categories: [time-series]
+---
+Before starting this assignment, it's important to define the following terms:
+
+Temporal Dependency: The extent to which current behavior depends on previous behavior (in other words, how is influenced from data from an earlier time?
+Spatial Dependency: The extent to which behavior/data in different geographical areas affect each other. 
+ARIMA (pdq): ARIMA stands for AutoRegressive Integrated Moving Average. It is popularly used to forecast in time-series data. It evaluatues temporal dependency (p), considers stationarity (d, constants in the data), and the moving average, or relationship between current value and random points not accounted for in p (q).
+Stationarity: This refers to the constant characteristics of time series data. Characteristics include variance and autocorrelation.
+First Difference: It is the operation applied to data to achieve stationarity, and is used in different models such as ARIMA. By removing each data point from the previous point, trends/variance can be eliminated for future evaluation.
+First Order Autocorrelation: It is the strength/direction of the relationship of the data point and its previous one, known as a LAG.
+
+3 Charts that can be used for plotting time: 
+1.Barcharts - discrete data
+2.Scatterplots - discrete data
+3.Line Graphs - continuous data 
+```{r}
+library(quantmod) 
+
+#download sample data
+getSymbols("AAPL",
+           from = "2020/12/31",
+           to = "2022/12/31",
+           periodicity = "daily")
+## 'getSymbols' currently uses auto.assign=TRUE by default, but will
+## use auto.assign=FALSE in 0.5-0. You will still be able to use
+## 'loadSymbols' to automatically load data. getOption("getSymbols.env")
+## and getOption("getSymbols.auto.assign") will still be checked for
+## alternate defaults.
+## 
+## [1] "AAPL"
+
+#view data
+head(AAPL)
+
+#find class
+class(AAPL)
+# The class is xts and zoo
+
+```
+
+Plotting TSStudio
+```{r}
+# Plotting time series data using TSstudio
+# install.packages(c("quantmod", "tidyverse","TSstudio"))
+# lapply(c("quantmod", "tidyverse","TSstudio"), require, character.only = TRUE)
+
+
+lapply(c("quantmod", "tidyverse","TSstudio"), require, character.only = TRUE)
+
+library(TSstudio)
+quantmod::getSymbols("AAPL", src="yahoo")
+class(AAPL)
+ts_plot(AAPL$AAPL.Adjusted, 
+        title = "Apple Stock prices",
+        Ytitle = "")
+class(AAPL) # What class is this object? - It is xts and zoo.
+
+# Some sample dataset from TSstudio
+ts_seasonal(USgas) # month-year matrix data
+#omitted type = "" due to error, can insert different kinds such as additive, multiplicative, etc. 
+
+
+# What class is USgas?
+class(USgas)
+# USgas is ts
+
+
+# Sample charts
+ts_heatmap(USgas)
+#Trend - appears to peak during January and be the least during June/May. The data indicates a seasonal trend.
+#Stationarity - appears to return - surround the average. Below average during mid-year months, above average during January and adjacent months.
+#PDQ
+
+
+ts_cor(USgas) # ACF and PACF
+#Trend - appears to peak during January and be the least during June/May. The data indicates a seasonal trend.
+#Stationarity - appears to return - surround the average. Below average during mid-year months, above average during January and adjacent months.
+#PDQ
+
+ts_lags(USgas, margin = .01)
+#Trend - postitive trend correlation in lags. some are more clear to see, others less clear - scattered data points and likely not significant
+#Stationarity - clear increase on some lags, other lags - datapoint is scattered enough it may center around a mean
+#PDQ
+
+#to find PDQ use auto.arima - forecast
+
+library(forecast)
+bestfit <- auto.arima(USgas)
+
+# This is the pdq:
+summary(bestfit)
+
+usgas=data.frame(USgas)
+```
+
+Plotting DYGraphs
+```{r}
+# Plotting time series data using dygraph
+# install.packages(c("quantmod", "tidyverse","dygraphs"))
+# lapply(c("quantmod", "tidyverse","dygraphs"), require, character.only = TRUE)
+
+lapply(c("quantmod", "tidyverse","dygraphs"), require, character.only = TRUE)
+library(dygraphs)
+par(family="Palatino")
+quantmod::getSymbols("GOOGL", src="yahoo")
+#changed from Twitter due to closed data :(
+
+class(GOOGL)
+# is xts and zoo
+m = tail(GOOGL, n=30)
+m =m[,1:(ncol(m)-2)] # drops last two columns 
+names(m)<-c('Open', 'High', 'Low', 'Close') # renames columns for plotting
+getwd()
+#allows you to see working directory - where Assignment 9 should go
+#in this case, it's in assignment 9 
+
+dygraph(m, main = "Google Stock Prices (Candlestick Chart)") |>
+  dyCandlestickGroup(c('Open', 'High', 'Low', 'Close')) |>
+  dyCandlestick() |>
+  dyLegend(show = "always", hideOnMouseOut = TRUE) |>
+  dyCSS("dygraph.css")
+
+#Trend = slight increase through most of October, before a drop. Seems to be increasing again. Not sure if this is part of a larger cyle of increasing/decreasing over time?
+#Stationarity = the data as currently presetented? None. But if part of a larger increase/decrease cycle, maybe.
+
+```
+

@@ -1,0 +1,10 @@
+---
+title: "Assignment 7"
+author: "Jannelle Navales"
+date: "2023-10-20"
+categories: [iframe, scatterplot, bubble chart, pie chart]
+---
+
+<iframe src="https://sharonjepkosgei.shinyapps.io/Hackathon/" width="825" height="600"></iframe>
+
+

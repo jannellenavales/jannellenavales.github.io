@@ -1,0 +1,303 @@
+---
+title: "Assignment 10"
+author: "Jannelle Navales"
+date: "2023-11-9"
+categories: [spatial data]
+---
+**Discussing 3D Visualization and Basic Elements of Temporal and Spatial Dimensions**
+According to MacEachren and Taylor's map use cube, multidimensional visualization consists of 1) presenting, 2) synthesis, 3) analysis, and 4) exploration. At the first step, known data is presented, and not much interaction is expected. However, by the end of the visualization process, graphics should be highly interactive and allow for viewers to discover previously unknown findings. 
+
+From my perspective, the idea of the map use cube makes a lot of sense to me. Like 2D visualization, there is raw data that can be presented, although the format may not allow for exploration of more insights or is an incomplete picture of the data. As more relationships between different variables are made, the further knowledge one can discover. Such relationships influence which potential interactions are effective of telling the story of the data. Of course, the goal of this approach is to keep the message public - valuable to anyone who comes across it and can be used for solutions.
+
+Based on this approach, there are 3 elements I consider to be important regarding temporal and spatial dimensions:
+
+1. Structure: How is data aggregated or arranged (the latter more important for spatial dimensions)?
+2. Relationships: What is the hierarchy of data? Are they aligned (synchronized in temporal data)?
+3. Interaction: consider animation, choices, and other personal characteristics to enhance visualizations
+
+
+**Creating a Leaflet of My Own Data - Euless City Hall**
+```{r}
+## R Leaflet sample program 
+## file: spatial_leaflet.R
+## Create an interactive map for web using ESRI Leaflet
+# Package:  leaflet, htmlwidgets, tidyverse
+
+## install.packages(c("htmlwidgets", "leaflet", "tidyverse"))
+library(htmlwidgets)
+library(leaflet)
+library(tidyverse)
+
+# Get EPPS geocode information (i.e. lon, lat) from online geocoder websites.
+# For example: https://www.mapdevelopers.com/geocode_tool.php
+# For my project, we will do Euless City Hall
+
+# Create object using leaflet setting the view at EPPS geo location)
+# For setView, longitude comes before latitude
+eppsmap <- leaflet() %>% setView(-97.0908266, 32.8381481, zoom=14)
+
+# Create object to acquire map data from ESRI
+esri <- grep("^Esri", providers, value = TRUE)
+
+# Assuming this provides visualization of map
+for (provider in esri) {
+  eppsmap <- eppsmap %>% addProviderTiles(provider, group = provider)
+}
+
+# Assuming this sets the marker - come back to this to change images
+# will make this into Euless City Hall
+# each line break will break the line in hover marker
+findmeat <- paste(sep = "<br/>",
+                  "<b><img src='https://www.eulesstx.gov/home/showpublishedimage/1656/636857588313270000' alt='Linda Martin'  style='width:45px;height:60px;' align = 'right'></b>",
+                  "<b><a href='https://www.eulesstx.gov/city-hall/euless-city-council/mayor' target='_blank'>Linda Martin </a></b>",
+                  "<b><a href='https://www.eulesstx.gov/' target='_blank'>City of Euless </a></b>",
+                  "203 N Ector Drive",
+                  "Euless TX 76039"
+)
+
+# Use htmlwidget::onRender function to  add custom behavior to the leaflet map using native JavaScript.
+# Aka, make it interactive?
+
+eppsmap %>%
+  addLayersControl(baseGroups = names(esri),
+                   options = layersControlOptions(collapsed = TRUE)) %>%
+  # addMiniMap(tiles = esri[[1]], toggleDisplay = TRUE,
+  #           position = "bottomleft") %>%
+  addMarkers(eppsmap, lng=-97.0908266, lat=32.8381481, popup=findmeat)  %>%
+  htmlwidgets::onRender("
+                        function(el, x) {
+                        var myMap = this;
+                        myMap.on('baselayerchange',
+                        function (e) {
+                        myMap.minimap.changeLayer(L.tileLayer.provider(e.name));
+                        })
+                        }")
+
+```
+
+**Run Spatial 01**
+```{r}
+# Collecting and mapping Census data using API
+# install.packages(c("tidyverse", "ggmap","mapproj", "tidycensus","tigris"), repos = "http://cran.us.r-project.org")
+# lapply(c("tidyverse", "ggmap","mapproj", "tidycensus","tigris"), require, character.only = TRUE)
+
+# More on Census data: https://rconsortium.github.io/censusguide/r-packages-all.html
+# an API key is required to get Census data for map creation
+# Obtain the key at http://api.census.gov/data/key_signup.html
+# Enter information about organization and email address, then consent
+# Key will be provided to email, click on activate key (wait a few minutes to activate)
+# Store the key using the following function:
+# census_api_key("key", install = TRUE)
+# API key will be stored in  .Renviron and can be accessed by Sys.getenv("CENSUS_API_KEY")
+
+## install.packages("tidycensus","tigris","ggplot2", repos = "http://cran.us.r-project.org")
+# Substitute with your own Census API key
+lapply(c("tidyverse", "ggmap","mapproj", "tidycensus","tigris"), require, character.only = TRUE)
+
+library(tidycensus)
+
+# census_api_key("1675cbaccc3f9d097e0ab3ba8bb4e0be81129ade", install = TRUE) 
+# following helps run the code
+readRenviron("~/.Renviron")
+
+library(tidycensus)
+library(tigris) # Load Census TIGER/Line Shapefiles
+options(tigris_use_cache = TRUE)
+
+# Get a list of American Community Survey (ACS) 2019 variables
+acs19 = tidycensus::load_variables(2019, "acs5", cache = TRUE)
+acs19_Profile = load_variables(2019, "acs5/profile", cache = TRUE)
+us_median_age19 <- get_acs(
+  geography = "state",
+  variables = "B01002_001",
+  year = 2019,
+  survey = "acs1",
+  geometry = TRUE,
+  resolution = "20m"
+) %>%
+  shift_geometry()
+# above gathered info from cities 65,000 and above
+
+plot(us_median_age19$geometry) # creates outline of U.S. map
+library(ggplot2)
+ggplot(data = us_median_age19, aes(fill = estimate)) + 
+  geom_sf(col="white") +  # Why color is white? Creates a pleasant looking border to contrast with white background
+  theme_bw() + # Creates white background, black title and map outline
+  scale_fill_distiller(palette = "YlGnBu",  # Try other palette? - stands for yellow, green, blue -> similar to other palettes
+                       direction = 1) + # 1 = positive direction, low to high as you move up?
+  labs(title = "  Median Age by State, 2019",
+       caption = "Data source: 2019 1-year ACS, US Census Bureau",
+       fill = "", family="Palatino") +
+  theme(legend.position=c(.08,.6), legend.direction="vertical") +
+  theme(text = element_text(family = "Palatino"), plot.title = element_text(hjust = 0.5))
+
+# Create another map using 2009 and 2020 data and do comparison?
+# 2020 data was never released - not available in tidycensus
+# Let's try 2009 and 2014 to do a five year comparison! Then I'll try 2020.
+
+# 2014
+# Get a list of American Community Survey (ACS) 2014 variables
+acs14 = tidycensus::load_variables(2014, "acs5", cache = TRUE)
+acs14_Profile = load_variables(2014, "acs5/profile", cache = TRUE)
+us_median_age14 <- get_acs(
+  geography = "state",
+  variables = "B01002_001",
+  year = 2014,
+  survey = "acs1",
+  geometry = TRUE,
+  resolution = "20m"
+) %>%
+  shift_geometry()
+# above gathered info from cities 65,000 and above
+
+plot(us_median_age14$geometry) # creates outline of U.S. map
+library(ggplot2)
+ggplot(data = us_median_age14, aes(fill = estimate)) + 
+  geom_sf(col="white") +  # Why color is white? Creates a pleasant looking border to contrast with white background
+  theme_bw() + # Creates white background, black title and map outline
+  scale_fill_distiller(palette = "YlGnBu", 
+                       direction = 1) + # 1 = positive direction, low to high as you move up?
+  labs(title = "  Median Age by State, 2014",
+       caption = "Data source: 2014 1-year ACS, US Census Bureau",
+       fill = "", family="Palatino") +
+  theme(legend.position=c(.08,.6), legend.direction="vertical") +
+  theme(text = element_text(family = "Palatino"), plot.title = element_text(hjust = 0.5))
+
+
+# 2009
+# Get a list of American Community Survey (ACS) 2009 variables
+acs09 = tidycensus::load_variables(2009, "acs5", cache = TRUE)
+acs09_Profile = load_variables(2009, "acs5/profile", cache = TRUE)
+us_median_age09 <- get_acs(
+  geography = "state",
+  variables = "B01002_001",
+  year = 2009,
+  survey = "acs1",
+  geometry = TRUE,
+  resolution = "20m"
+) %>%
+  shift_geometry()
+# above gathered info from cities 65,000 and above
+
+plot(us_median_age09$geometry) # creates outline of U.S. map
+library(ggplot2)
+ggplot(data = us_median_age09, aes(fill = estimate)) + 
+  geom_sf(col="white") +  # Why color is white? Creates a pleasant looking border to contrast with white background
+  theme_bw() + # Creates white background, black title and map outline
+  scale_fill_distiller(palette = "YlGnBu",  
+                       direction = 1) + # 1 = positive direction, low to high as you move up?
+  labs(title = "  Median Age by State, 2009",
+       caption = "Data source: 2009 1-year ACS, US Census Bureau",
+       fill = "", family="Palatino") +
+  theme(legend.position=c(.08,.6), legend.direction="vertical") +
+  theme(text = element_text(family = "Palatino"), plot.title = element_text(hjust = 0.5))
+
+# Based on the maps, Utah consistently has the youngest population, while the Northeast and Florida consistently the oldest. # In 2014, it seems as if the overall median age was the youngest in 2014.
+
+
+
+```
+
+**Run Spatial 02**
+```{r}
+# Collecting and mapping Census data using API: State data and maps
+lapply(c("tidyverse", "ggmap","mapproj", "tidycensus","tigris", "tmap", "mapview"), require, character.only = TRUE)
+library(tidycensus)
+options(tigris_use_cache = TRUE)
+
+
+tx_income <- get_acs(
+  geography = "tract", 
+  variables = "B19013_001",
+  state = "TX", 
+  year = 2020,
+  geometry = TRUE
+)
+tx_income
+plot(tx_income["estimate"])
+
+
+library(tmap)
+tmap_mode("view")
+
+dallas_income <- get_acs(
+  geography = "tract",
+  variables = "B19013_001",
+  year = 2020,
+  state = "TX",
+  county = "Dallas",
+  geometry = TRUE
+)
+
+tm_shape(dallas_income) + 
+  tm_fill(col = "estimate", palette = "YlOrRd",
+          alpha = 0.5)
+
+library(mapview)
+mapView(dallas_income, zcol = "estimate")
+
+# 2015?
+tx_income <- get_acs(
+  geography = "tract", 
+  variables = "B19013_001",
+  state = "TX", 
+  year = 2015,
+  geometry = TRUE
+)
+tx_income
+plot(tx_income["estimate"])
+
+
+library(tmap)
+tmap_mode("view")
+
+dallas_income <- get_acs(
+  geography = "tract",
+  variables = "B19013_001",
+  year = 2015,
+  state = "TX",
+  county = "Dallas",
+  geometry = TRUE
+)
+
+tm_shape(dallas_income) + 
+  tm_fill(col = "estimate", palette = "YlOrRd",
+          alpha = 0.5)
+
+library(mapview)
+mapView(dallas_income, zcol = "estimate")
+
+# 2010
+tx_income <- get_acs(
+  geography = "tract", 
+  variables = "B19013_001",
+  state = "TX", 
+  year = 2010,
+  geometry = TRUE
+)
+tx_income
+plot(tx_income["estimate"])
+
+
+library(tmap)
+tmap_mode("view")
+
+dallas_income <- get_acs(
+  geography = "tract",
+  variables = "B19013_001",
+  year = 2010,
+  state = "TX",
+  county = "Dallas",
+  geometry = TRUE
+)
+
+tm_shape(dallas_income) + 
+  tm_fill(col = "estimate", palette = "YlOrRd",
+          alpha = 0.5)
+
+library(mapview)
+mapView(dallas_income, zcol = "estimate")
+
+# 0ver time income increases especially in rural areas around metro areas
+```
+
