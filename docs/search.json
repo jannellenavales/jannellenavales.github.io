@@ -81,7 +81,7 @@
     "href": "posts/Assignment 8/index.html",
     "title": "Assignment 8",
     "section": "",
-    "text": "This week, I mostly brainstormed ideas for dashboards and looked up examples of R Markdown files. Unfortunately, R studio does not support a dashboard yet."
+    "text": "This week, I mostly brainstormed ideas for dashboards and looked up examples of R Markdown files. Unfortunately, R studio does not support flexdashboard yet.\nLooking at D3.js charts, Shiny, and ggplot2, here are some differences between the 3: 1. D3.js is a library that allows for the widest range of interactive and animated visualizations. However, it is perhaps the most difficult to learn. 2. Shiny is good for creating dashboards, which can also be highly interactive. Unlike D3.js, Shiny is based in R and is much easier to learn. 3. GGPlot2 is used to create static, not animated visualizations, which can be a disadvantage for some. However, of the 3 types, they are the easiest to use."
   },
   {
     "objectID": "posts/Assignment 10/index.html",
@@ -96,5 +96,12 @@
     "title": "Final Project",
     "section": "",
     "text": "Prescription Drug Pricing in the United States: Analyzing the Concrete and Abstract\nMy group chose to do our final project on trends in prescription pricing in the U.S. over time, as well as the effect of legislation on pricing. Our proposal presentation, final project, and paper can be found below:\nProject Proposal\nFinal Project Dashboard\nFinal Paper"
+  },
+  {
+    "objectID": "imassignment1.html",
+    "href": "imassignment1.html",
+    "title": "Jannelle Navales",
+    "section": "",
+    "text": "Hello world!"
   }
 ]
