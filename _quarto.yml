@@ -10,9 +10,7 @@ website:
       - text: Information Management
         menu: 
           - text: "IM Assignment 1"
-            href: imassignment1.qmd
-          - text: "IM Assignment 2"
-            href: imassignment2.qmd  
+            href: EPPS6354A1.pdf
       - icon: github
         href: https://github.com/jannellenavales
       - icon: linkedin
