@@ -11,6 +11,8 @@ website:
         menu: 
           - text: "IM Assignment 1"
             href: EPPS6354Assignment1.pdf
+          - text: "IM Assignment 2"
+            href: EPPS6354Assignment2.pdf
       - icon: github
         href: https://github.com/jannellenavales
       - icon: linkedin
