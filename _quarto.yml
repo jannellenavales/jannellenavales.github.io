@@ -15,6 +15,10 @@ website:
             href: EPPS6354Assignment2.pdf
           - text: "IM Assignment 3"
             href: EPPS6354Assignment3.pdf
+          - text: "IM Assignment 4"
+            href: EPPS6354A4.pdf
+          - text: "Proposal"
+            href: EPPS6354Proposal.pdf
       - icon: github
         href: https://github.com/jannellenavales
       - icon: linkedin
