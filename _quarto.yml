@@ -24,7 +24,7 @@ website:
           - text: "Proposal"
             href: EPPS6354Proposal.pdf
           - text: "Final Project Presentation"
-            href: EPPS6354FinalPresentation.pdf
+            href: EPPS6354PresentationFinal.pdf
           - text: "Final Project Application"
             href: utdfmp.qmd
       - icon: github
